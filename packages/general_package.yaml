@@ -1,0 +1,20 @@
+# +----------------------------------------------------------------------------+
+# | This selection variable is use to define what theme to show (light/dark)   |
+# | The automated system is based on the phone or computer settings.           |
+# | In my case there is no dark and light with my fireHD tablet and I prefer   |
+# | to use the Sun integration                                                 |
+# +----------------------------------------------------------------------------+
+input_select:
+  homeos_theme_selection:
+    name: HomeOS Theme Selection
+    options: 
+      - homeos_light
+      - homeos_dark
+    icon: mdi:theme-light-dark
+
+sensor:
+  - platform: time_date
+    display_options:
+      - "time"
+      - "date"
+      - "time_date"

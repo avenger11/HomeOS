@@ -1,0 +1,48 @@
+# +----------------------------------------------------------------------------+
+# | Description:                                                               |
+# | This file define the theme variables that are independent of the selection |
+# | of the mode ( light or dark)                                               |
+# +----------------------------------------------------------------------------+
+# | Author: Sebastien Logeais                                                  |
+# +----------------------------------------------------------------------------+
+# | Date: 16 Oct 2023                                                          |
+# +----------------------------------------------------------------------------+
+homeos:
+
+# +----------------------------------------------------------------------------+
+# | Layout variable                                                            |
+# +----------------------------------------------------------------------------+
+  homeos-screen-height: 62.6vw # 16/9 ratio
+  homeos-topbar-height: 3vw
+  homeos-appsbar-width: 6vw
+  
+# +----------------------------------------------------------------------------+
+# | General card Custom variable                                               |
+# +----------------------------------------------------------------------------+
+  homeos-card-border-radius: 2.5vw
+  homeos-card-box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.5)
+  homeos-card-border-style: none
+
+# +----------------------------------------------------------------------------+
+# | Apple Fonts                                                                |
+# +----------------------------------------------------------------------------+
+  primary-font-family: SF Pro Text, Roboto, system-ui
+  paper-font-common-base_-_font-family: var(--primary-font-family)
+  paper-font-common-code_-_font-family: var(--primary-font-family)
+  paper-font-body1_-_font-family: var(--primary-font-family)
+  paper-font-subhead_-_font-family: var(--primary-font-family)
+  paper-font-headline_-_font-family: var(--primary-font-family)
+  paper-font-caption_-_font-family: var(--primary-font-family)
+  paper-font-title_-_font-family: var(--primary-font-family)
+  ha-card-header-font-family: var(--primary-font-family)
+  mdc-typography-body1-font-family: var(--primary-font-family)
+  mdc-typography-font-family: var(--primary-font-family)  
+
+# +----------------------------------------------------------------------------+
+# | Definition of the light and dark mode                                      |
+# +----------------------------------------------------------------------------+
+  modes:
+    light: !include_dir_merge_named light/
+    dark: !include_dir_merge_named dark/
+
+

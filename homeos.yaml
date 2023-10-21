@@ -1,0 +1,193 @@
+#..............................................................................
+#.HHHH...HHHH.........................................OOOOOOO......SSSSSSS.....
+#.HHHH...HHHH........................................OOOOOOOOOO...OSSSSSSSS....
+#.HHHH...HHHH.......................................eOOOOOOOOOOO..OSSSSSSSSS...
+#.HHHH...HHHH....oooooo..ommmmmmmmmmmmm....eeeeee...eOOOO..OOOOO.OOSSS..SSSS...
+#.HHHH...HHHH..ooooooooo.ommmmmmmmmmmmmm..eeeeeeee.eeOOO....OOOOOOOSSS.........
+#.HHHHHHHHHHH..oooo.oooooommmm.mmmmmmmmm.meee.eeee.eeOO......OOOO.OSSSSSS......
+#.HHHHHHHHHHH.Hooo...ooooommm..mmmm..mmmmmeee..eeeeeeOO......OOOO..SSSSSSSSS...
+#.HHHHHHHHHHH.Hooo...ooooommm..mmmm..mmmmmeeeeeeeeeeeOO......OOOO....SSSSSSS...
+#.HHHH...HHHH.Hooo...ooooommm..mmmm..mmmmmeeeeeeeeeeeOOO....OOOOO.......SSSSS..
+#.HHHH...HHHH.Hooo...ooooommm..mmmm..mmmmmeee.......eOOOO..OOOOO.OOSS....SSSS..
+#.HHHH...HHHH..oooo.oooooommm..mmmm..mmmmmeee..eeee.eOOOOOOOOOOO.OOSSSSSSSSSS..
+#.HHHH...HHHH..ooooooooo.ommm..mmmm..mmmm.eeeeeeee...OOOOOOOOOO...OSSSSSSSSS...
+#.HHHH...HHHH....oooooo..ommm..mmmm..mmmm..eeeeee......OOOOOO......SSSSSSSS....
+#..............................................................................
+
+# +----------------------------------------------------------------------------+
+# | Description:                                                               |
+# | This is the main file for the HomeOS dashboard                             |
+# | A first grid layout define the app bar / top bar / cards area              |
+# | A second grid layout define the cars position within the cards area        |
+# +----------------------------------------------------------------------------+
+# | Author: Sebastien Logeais                                                  |
+# +----------------------------------------------------------------------------+
+# | Date: 25 Aug 2023                                                          |
+# +----------------------------------------------------------------------------+
+
+
+# +----------------------------------------------------------------------------+
+# | Change the entity in the following section for the one you use             |
+# | Change only 'xxxx.xxxx '
+# +----------------------------------------------------------------------------+
+homeos_configuration:
+  climate: &config_climate  'climate.entryway'
+  alarm:   &config_alarm    'alarm_control_panel.alarme'
+  weather: &config_weather  'weather.montreal_forecast'
+
+
+
+
+
+# +----------------------------------------------------------------------------+
+# +----------------------------------------------------------------------------+
+# | Do not change code after this box                                          |
+# +----------------------------------------------------------------------------+
+
+
+kiosk_mode:
+  hide_header: true
+
+# all relevant template will be find
+button_card_templates: !include_dir_merge_named homeos_module/
+
+views:
+# +----------------------------------------------------------------------------+
+# | Definition of the first grid-layout                                        |
+# | +------+----------------------------------+                                |
+# | |      |           2 topbar               |                                |
+# | |   1  +----------------------------------+                                |
+# | | Apps |                                  |                                |
+# | |      |           3 grid                 |                                |
+# | |      |                                  |                                |
+# | +------+----------------------------------+                                |
+# +----------------------------------------------------------------------------+
+  - type: custom:grid-layout
+    title: HomeOS
+    background: var(--background)
+    layout:
+      height: var(--homeos-screen-height)
+      margin: 0
+      grid-template-columns: var(--homeos-appsbar-width) 1fr 
+      grid-template-rows: var(--homeos-topbar-height) 1fr 
+      grid-gap: 0
+      grid-template-areas: |
+        "apps topbar "
+        "apps cards"
+    cards:
+
+# +---+------------------------------------------------------------------------+
+# | 1 | Definition of the Apps Bar                                             |
+# +---+------------------------------------------------------------------------+
+      - type: picture-elements
+        image: /local/homeos/empty.png
+        style: |
+          ha-card {
+            border-radius: 0;
+            border-top-left-radius: var(--homeos-card-border-radius);
+            border-bottom-left-radius: var(--homeos-card-border-radius);
+            --ha-card-background: var(--homeos-card-background);
+            backdrop-filter: var(--homeos-card-backdrop-filter);
+            --ha-card-border-color: rgba(0, 0, 0, 0);
+            --ha-card-border-width: 0px;
+          }
+          :host {
+            height: var(--homeos-screen-height);
+            margin: 0px !important;
+          }
+        elements:
+# +----------------------------------------------------------------------------+
+# | Element are placed in order from top to bottom of the screen               |
+# +----------------------------------------------------------------------------+       
+          - type: custom:button-card
+            entity: *config_climate
+            template: template_climate
+            style:
+              top: 3vw
+              left: calc(var(--homeos-appsbar-width) / 2)
+
+          - type: custom:button-card
+            entity: *config_alarm
+            template:
+              - icon_light_beacon_max_fill
+              - template_system_icon
+            style:
+              left: calc(var(--homeos-appsbar-width) / 2)
+              top: 8vw
+            styles: # Override normal setting to make the icon smaller
+              custom_fields:
+                icon: 
+                  - width: calc( var(--homeos-appsbar-width) - 2.5vw)
+
+          - type: custom:button-card
+            style:
+              left: calc(var(--homeos-appsbar-width) / 2)
+              top: 55vw
+            styles: # Override normal setting to make the icon bigger
+              custom_fields:
+                icon: 
+                  - width: calc( var(--homeos-appsbar-width) - 1.5vw)
+            template:
+              - icon_setting_fill
+              - template_system_icon
+          
+          - type: custom:button-card
+            style:
+              left: calc(var(--homeos-appsbar-width) / 2)
+              top: 60vw
+            template:
+              - icon_gearshape_fill
+              - template_system_icon
+            tap_action:
+              action: navigate
+              navigation_path: /config/integrations/dashboard
+
+# +---+------------------------------------------------------------------------+
+# | 2 | Definition of the top Bar                                              |
+# +---+------------------------------------------------------------------------+
+      - type: picture-elements
+        image: /local/homeos/empty.png
+        style: |
+          ha-card {
+            background: rgba(0,0,0,0);
+            --ha-card-border-color: rgba(0, 0, 0, 0);
+            --ha-card-border-width: 0px;
+          }
+          :host {
+            margin: 0px !important;
+            height: var(--homeos-topbar-height) ;
+          }
+        elements:
+          - type: custom:button-card
+            entity: sensor.time
+            template: template_topbar_time
+            style:
+              top: calc((var(--homeos-topbar-height) / 2) + 0.4vw)
+              left: 5vw  
+
+# +---+------------------------------------------------------------------------+
+# | 3 | Definition of the grid                                                 |
+# +---+------------------------------------------------------------------------+
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        view_layout:
+          grid_area: cards
+        layout:
+          height: 58vw # 16/10 screen
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+          grid-template-rows: 1fr 1fr 1fr 1fr 1fr
+          grid-gap: 0.8vw
+          margin: 0
+          padding: 0.8vw 0.8vw 0.8vw 0.8vw
+          grid-template-areas: |
+            "weather weather map map map map person"
+            "weather weather map map map map pack"
+            "weather weather map map map map 3"
+            "calendar calendar map map map map 4"
+            "calendar calendar . . . . 5"
+        cards:
+  
+# +----------------------------------------------------------------------------+
+# | Weather Area Definition                                                    |
+# +----------------------------------------------------------------------------+
+          - 

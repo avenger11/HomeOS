@@ -1,0 +1,55 @@
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# +----------------------------------------------------------------------------+
+# | Load frontend themes from the themes folder                                |
+# +----------------------------------------------------------------------------+
+frontend:
+  themes: !include themes/homeos/general_theme.yaml
+
+# +----------------------------------------------------------------------------+
+# | Definition for extra module                                                |
+# +----------------------------------------------------------------------------+
+  extra_module_url:
+    - /local/community/custom-brand-icons/custom-brand-icons.js
+    - /local/community/kiosk-mode/kiosk-mode.js
+    - /local/community/button-card/button-card.js
+    - /local/community/lovelace-layout-card/layout-card.js
+    - /local/community/lovelace-card-mod/card-mod.js
+    - /local/font.css
+
+# +----------------------------------------------------------------------------+
+# | Setting for the HomeOs dashboard                                           |
+# +----------------------------------------------------------------------------+
+lovelace:
+  dashboards:
+      lovelace-homeos:
+        mode: yaml
+        filename: homeos.yaml
+        title: HomeOS
+        icon: phu:homekit
+        show_in_sidebar: true
+
+homeassistant:
+  packages: !include_dir_named packages
+  customize: !include customize.yaml
+  allowlist_external_dirs:
+    - /config
+
+
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+# +----------------------------------------------------------------------------+
+# |  This is for the container health check                                    |
+# +----------------------------------------------------------------------------+
+simple_healthcheck:
+  auth_required: false #enable or disable authentication for /healthz endpoint 
+
+# +----------------------------------------------------------------------------+
+# | Setting for MariaDB                                                        |
+# +----------------------------------------------------------------------------+
+# recorder:
+#   db_url: maria_db
+#   purge_keep_days: 10   # default

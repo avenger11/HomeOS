@@ -1,0 +1,67 @@
+# +----------------------------------------------------------------------------+
+# | File type: card definition                                                 |
+# +----------------------------------------------------------------------------+
+# | Description:                                                               |
+# | This is the Apps Bar definition                                            |
+# |                                                                            |
+# +----------------------------------------------------------------------------+
+# | Author: Sebastien Logeais                                                  |
+# +----------------------------------------------------------------------------+
+# | Date: 1 October 2023                                                       |
+# +----------------------------------------------------------------------------+
+
+template_climate:
+  label: >
+    [[[
+      return entity.attributes.current_temperature + "°" ;
+    ]]]
+  show_state: false
+  show_icon: false
+  show_name: false
+  show_label: true
+  action: none
+
+  styles:
+    card:
+      - width: calc( var(--homeos-appsbar-width) - 1.1vw)
+      - height: calc( var(--homeos-appsbar-width) - 2vw)
+      # - borderRadius: 50%
+      # - border-width: 0px
+      # - backdrop-filter: var(--homeos-card-backdrop-filter)
+      - background: rgba(0,0,0,0)
+      # - background-color: >
+      #     [[[
+      #       if ( entity.attributes.hvac_action == 'heating') return 'orange';
+      #       if ( entity.attributes.hvac_action == 'cooling') return 'rgb(0, 122, 255)' ;
+      #       return 'var(--homeos-card-background-revert)';                      
+      #     ]]]
+    label:
+      - font-size: 2vw
+      - font-weight: 400
+      # - color: var(--homeos-card-text-color-primary)
+      - color: >
+          [[[
+            if ( entity.attributes.hvac_action == 'heating') return 'orange';
+            if ( entity.attributes.hvac_action == 'cooling') return 'rgb(0, 122, 255)' ;
+            return 'var(--homeos-card-text-color-primary)';                      
+          ]]]
+
+template_system_icon:
+  show_state: false
+  show_icon: false
+  show_name: false
+  show_label: false
+  styles:
+    card:
+      - background: none
+    custom_fields:
+      icon:
+        - width: calc( var(--homeos-appsbar-width) - 2vw)
+        - top: 50%
+        - left: 50%
+        - margin: auto
+  grid:
+    - grid-template-areas: |
+        "icon"
+    - grid-template-columns: auto
+    - grid-template-row: auto
