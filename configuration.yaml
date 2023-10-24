@@ -11,17 +11,28 @@ frontend:
 # | Definition for extra module                                                |
 # +----------------------------------------------------------------------------+
   extra_module_url:
+    - /local/community/lovelace-card-mod/card-mod.js 
     - /local/community/custom-brand-icons/custom-brand-icons.js
-    - /local/community/kiosk-mode/kiosk-mode.js
-    - /local/community/button-card/button-card.js
-    - /local/community/lovelace-layout-card/layout-card.js
-    - /local/community/lovelace-card-mod/card-mod.js
-    - /local/font.css
+
+# +----------------------------------------------------------------------------+
+# | Setting for resources                                                      |
+# +----------------------------------------------------------------------------+
+lovelace:
+  mode: yaml
+  resources:
+    [
+      { url: /hacsfiles/button-card/button-card.js,                           type: module },
+      { url: /hacsfiles/kiosk-mode/kiosk-mode.js,                             type: module },
+      { url: /hacsfiles/lovelace-layout-card/layout-card.js,                  type: module },
+      { url: /local/community/atomic-calendar-revive/atomic-calendar-revive.js,     type: module },
+      { url: /local/community/swipe-card/swipe-card.js,                       type: module },     
+      { url: '/local/fonts.css?v=2.1',                                        type: css }
+    ]
+
 
 # +----------------------------------------------------------------------------+
 # | Setting for the HomeOs dashboard                                           |
 # +----------------------------------------------------------------------------+
-lovelace:
   dashboards:
       lovelace-homeos:
         mode: yaml

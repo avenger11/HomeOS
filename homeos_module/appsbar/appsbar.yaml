@@ -13,32 +13,25 @@
 template_climate:
   label: >
     [[[
-      return entity.attributes.current_temperature + "°" ;
+      let temp = entity.attributes.current_temperature ;
+      let temp_rounded = Math.round(temp);
+      return (temp_rounded) + "°" ;
     ]]]
+
   show_state: false
   show_icon: false
   show_name: false
   show_label: true
   action: none
-
   styles:
     card:
-      - width: calc( var(--homeos-appsbar-width) - 1.1vw)
+      - width: calc( var(--homeos-appsbar-width) - 0.5vw)
       - height: calc( var(--homeos-appsbar-width) - 2vw)
-      # - borderRadius: 50%
-      # - border-width: 0px
-      # - backdrop-filter: var(--homeos-card-backdrop-filter)
       - background: rgba(0,0,0,0)
-      # - background-color: >
-      #     [[[
-      #       if ( entity.attributes.hvac_action == 'heating') return 'orange';
-      #       if ( entity.attributes.hvac_action == 'cooling') return 'rgb(0, 122, 255)' ;
-      #       return 'var(--homeos-card-background-revert)';                      
-      #     ]]]
     label:
-      - font-size: 2vw
+      - font-size: 2.8vw
       - font-weight: 400
-      # - color: var(--homeos-card-text-color-primary)
+      - letter-spacing: "-0.1vw"
       - color: >
           [[[
             if ( entity.attributes.hvac_action == 'heating') return 'orange';
