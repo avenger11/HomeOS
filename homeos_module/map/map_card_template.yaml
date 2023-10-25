@@ -41,10 +41,10 @@ light:
   styles:
     custom_fields:
       icon:
-        - width: 2.3vw
+        - width: 3vw
     card:
-      - width: 4vw
-      - height: 4vw
+      - width: 5vw
+      - height: 5vw
       - borderRadius: 50%
       - border-width: 0px
       - background-color: >

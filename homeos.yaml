@@ -13,7 +13,6 @@
 #.HHHH...HHHH..ooooooooo.ommm..mmmm..mmmm.eeeeeeee...OOOOOOOOOO...OSSSSSSSSS...
 #.HHHH...HHHH....oooooo..ommm..mmmm..mmmm..eeeeee......OOOOOO......SSSSSSSS....
 #..............................................................................
-
 # +----------------------------------------------------------------------------+
 # | Description:                                                               |
 # | This is the main file for the HomeOS dashboard                             |
@@ -24,23 +23,57 @@
 # +----------------------------------------------------------------------------+
 
 
-# +----------------------------------------------------------------------------+
+# ==============================================================================
 # |          ====> THIS IS THE SECTION TO CHANGE YOUR ENTITY  <=====           |
 # | Change only 'xxxx.xxxx '                                                   |
-# +----------------------------------------------------------------------------+
+# ==============================================================================
 homeos_configuration:
+
+# Apps Bar
   climate: &config_climate  'climate.entryway'
   alarm:   &config_alarm    'alarm_control_panel.alarme'
 
+# Scene Configuration
+# +---+---+
+# | 1 | 2 |
+# +---+---+
+# | 3 | 4 |
+# +---+---+
+# 
+# +----------+--------------------+-------------------------------------------+
+# | Name     | Anchor Name        | Entity or icon svg to change              |
+# +----------+--------------------+-------------------------------------------+
+  scene1:       &config_scene1       'input_boolean.homeos_scene_clara_aux_dodo'
+  scene1_icon:  &config_scene1_icon  'icon_moon_stars_fill'
+
+  scene2:       &config_scene2       'input_boolean.homeos_scene_invite'
+  scene2_icon:  &config_scene2_icon  'icon_wineglass_fill'
+
+  scene3:       &config_scene3        'input_boolean.homeos_scene_morning_coffee'
+  scene3_icon:  &config_scene3_icon   'icon_cup_saucer_fill'
+
+  scene4:       &config_scene4        'input_boolean.homeos_scene_morning_coffee'
+  scene3_icon:  &config_scene4_icon   'icon_empty'
+
+
+# Garbage Card Configuration
+  garbage:      &config_garbage       'schedule.garbage'
+  recyling:     &config_recycling     'schedule.recycle'
 
 
 
-# +----------------------------------------------------------------------------+
+
+# ==============================================================================
 # | Do not change code after this box                                          |
-# +----------------------------------------------------------------------------+
-# +----------------------------------------------------------------------------+
-# +----------------------------------------------------------------------------+
-# +----------------------------------------------------------------------------+
+# ==============================================================================
+
+
+
+
+
+
+
+
 
 kiosk_mode:
   hide_header: true
@@ -184,14 +217,13 @@ views:
           margin: 0px
           padding: var(--homeos-card-grid-gap)
           grid-template-areas: |
-            "weather weather map map map map person"
-            "weather weather map map map map pack"
-            "weather weather map map map map 3"
+            "weather  weather  map map map map scene"
+            "weather  weather  map map map map garbage"
+            "weather  weather  map map map map 3"
             "calendar calendar map map map map 4"
-            "calendar calendar . . . . 5"
+            "calendar calendar .   .   .   .   5"
 
         cards:
-  
 # +----------------------------------------------------------------------------+
 # | Weather Area Definition                                                    |
 # +----------------------------------------------------------------------------+
@@ -241,4 +273,79 @@ views:
               }
             card: !include homeos_module/map/map_card.yaml      
 
-        
+# +----------------------------------------------------------------------------+
+# | Scene Area Definition                                                      |
+# +----------------------------------------------------------------------------+
+          - type: custom:mod-card
+            view_layout:
+              grid-area: scene
+            style: |
+              ha-card {
+                background: var(--homeos-card-background);
+                backdrop-filter: var(--homeos-card-backdrop-filter);
+                border-radius: var(--homeos-card-border-radius);
+                box-shadow: var(--homeos-card-box-shadow);
+                --grid-card-gap: 0.8vw !important;
+                padding: 0.8vw;
+              }
+              :host {
+                margin: 0px !important;
+              }
+            card:
+                type: grid
+                columns: 2
+                cards:
+                  - type: custom:button-card
+                    entity: *config_scene1
+                    template:
+                      - *config_scene1_icon
+                      - template_scene
+
+                  - type: custom:button-card
+                    entity: *config_scene2
+                    template:
+                      - *config_scene2_icon
+                      - template_scene
+
+                  - type: custom:button-card
+                    entity: *config_scene3
+                    template:
+                      - *config_scene3_icon
+                      - template_scene
+
+                  - type: custom:button-card
+                    entity: *config_scene4
+                    template:
+                      - *config_scene4_icon
+                      - template_scene
+
+# +----------------------------------------------------------------------------+
+# | Garbage Area Definition                                                    |
+# +----------------------------------------------------------------------------+
+          - type: custom:mod-card
+            view_layout:
+              grid-area: garbage
+            style: |
+              ha-card {
+                --grid-card-gap: var(--homeos-card-grid-gap) !important; 
+              }
+              :host {
+                margin: 0px !important;
+              }
+            card:
+              type: vertical-stack
+              view_layout:
+                grid-area: garbage
+              cards:
+                - type: custom:button-card     
+                  entity: *config_garbage
+                  template:
+                    - template_garbage
+                    - icon_trash_fill
+
+                - type: custom:button-card     
+                  entity: *config_recycling
+                  template:
+                    - template_garbage
+                    #- icon_garbage
+      

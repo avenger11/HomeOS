@@ -1,0 +1,76 @@
+template_garbage:
+  label: >
+    [[[
+      let nextEvent = entity.attributes.next_event;
+      let nextEventTimestamp = new Date(nextEvent);
+      let daysOfWeek = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'vendredi', 'Saturday'];
+      let dayOfWeek = daysOfWeek[nextEventTimestamp.getDay()];
+      return dayOfWeek;
+    ]]]
+  show_name: true
+  show_label: true
+  show_icon: false
+  styles:
+    card:
+      #- width: 176.5px
+      - height: 5vw
+      - padding: 0.75vw 0.75vw 0.75vw 0.75vw
+      - border-radius: var(--homeos-card-border-radius)
+      - box-shadow: var(--homeos-card-box-shadow)
+    grid:
+      - grid-template-areas: '"i n" "i l"'
+      - grid-template-columns: none
+      - grid-template-rows: 1fr 1fr
+    name:
+      - justify-self: start
+      - font-size: 1.2vw
+      - font-weight: 600
+      - color: var(--homeos-card-text-color-primary)
+      - align-self: end
+    img_cell:
+      - justify-content: center
+      - align-items: center
+      - background: var(--homeos-card-background-revert)
+      - border-radius: 1.75vw
+      - width: 3.5vw
+      - height: 3.5vw
+      - place-self: start
+    label:
+      - justify-self: start
+      - font-size: 1vw
+      - font-weight: 600
+      - color: var(--homeos-card-text-color-secondary)
+      - padding-bottom: 5px
+  state:
+    - value: 'on'
+      styles:
+        img_cell:
+          - background: 'rgb(90,201,186)'
+          - animation: blink 2s ease infinite
+        name:
+          - color: black
+        label:
+          - color: black
+        card:
+          - background: 'rgba(255, 255, 255, 1)'
+
+  custom_fields:
+    icon:
+      - position: absolute
+      - width: 3vw
+      - left: 1vw
+      - display: flex
+
+  style: |
+    ha-card {
+      background: var(--homeos-card-background);
+      backdrop-filter: var(--homeos-card-backdrop-filter) !important;
+      box-shadow: none; 
+      border-width: 0px;
+    }   
+  tap_action:
+    action: none
+
+  variables:
+    state: > #send the state to the svg icon
+      [[[ return !entity || entity.state; ]]]
