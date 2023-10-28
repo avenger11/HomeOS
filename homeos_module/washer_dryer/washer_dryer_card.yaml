@@ -1,0 +1,113 @@
+
+type: vertical-stack
+cards:
+  - type: custom:button-card
+    entity: input_select.washing_machine
+    show_name: true
+    show_label: false
+    show_state: true
+    styles:
+      card:
+        - height: 5vw
+        - padding: 0.75vw 0.75vw 0.75vw 0.75vw
+        - border-radius: var(--homeos-card-border-radius)
+        - box-shadow: var(--homeos-card-box-shadow)
+      grid:
+        - grid-template-areas: '"icon n" "icon s"'
+        - grid-template-columns: 4vw 1fr
+        - grid-template-rows: 1fr 1fr
+      name:
+        - justify-self: start
+        - font-size: 1.2vw
+        - font-weight: 600
+        - color: var(--homeos-card-text-color-primary)
+        - align-self: end
+      state:
+        - justify-self: start
+        - font-size: 1vw
+        - font-weight: 600
+        - color: var(--homeos-card-text-color-secondary)
+      custom_fields:
+        icon:
+          - margin: 0.6vw
+    state:
+      - value: "Cycle terminé"
+        styles:
+          name:
+            - color: black
+          state:
+            - color: black
+          card:
+            - background: 'rgba(255, 255, 255, 1)'
+
+    style: |
+      ha-card {
+        background: var(--homeos-card-background);
+        backdrop-filter: var(--homeos-card-backdrop-filter) !important;
+        box-shadow: none; 
+        border-width: 0px;                
+      }   
+    tap_action:
+      action: none
+
+    template: icon_washer_fill
+
+    variables:
+      state: > #send the state to the svg icon
+        [[[ return !entity || entity.state; ]]]
+
+  - type: custom:button-card
+    entity: input_select.dryer_machine
+    show_name: true
+    show_label: false
+    show_state: true
+    styles:
+      card:
+        - height: 5vw
+        - padding: 0.75vw 0.75vw 0.75vw 0.75vw
+        - border-radius: var(--homeos-card-border-radius)
+        - box-shadow: var(--homeos-card-box-shadow)
+      grid:
+        - grid-template-areas: '"icon n" "icon s"'
+        - grid-template-columns: 4vw 1fr
+        - grid-template-rows: 1fr 1fr
+      name:
+        - justify-self: start
+        - font-size: 1.2vw
+        - font-weight: 600
+        - color: var(--homeos-card-text-color-primary)
+        - align-self: end
+      state:
+        - justify-self: start
+        - font-size: 1vw
+        - font-weight: 600
+        - color: var(--homeos-card-text-color-secondary)
+      custom_fields:
+        icon:
+          - margin: 0.6vw
+    state:
+      - value: "Cycle terminé"
+        styles:
+          name:
+            - color: black
+          state:
+            - color: black
+          card:
+            - background: 'rgba(255, 255, 255, 1)'
+
+    style: |
+      ha-card {
+        background: var(--homeos-card-background);
+        backdrop-filter: var(--homeos-card-backdrop-filter) !important;
+        box-shadow: none; 
+        border-width: 0px;                
+      }   
+    tap_action:
+      action: none
+
+    template: icon_dryer_fill
+
+    variables:
+      state: > #send the state to the svg icon
+        [[[ return !entity || entity.state; ]]]
+          

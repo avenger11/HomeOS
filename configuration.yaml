@@ -59,6 +59,30 @@ simple_healthcheck:
 # +----------------------------------------------------------------------------+
 # | Setting for MariaDB                                                        |
 # +----------------------------------------------------------------------------+
-# recorder:
-#   db_url: maria_db
-#   purge_keep_days: 10   # default
+recorder:
+  db_url: !secret maria_db
+  purge_keep_days: 5  
+  exclude:
+    domains:
+      - automation
+      - update
+    entity_globs:
+      - sensor.sun*
+      - weather.*
+      - number.*
+      - input_select.*
+      - select.*
+      - sensor.montreal_*
+      - sensor.openweathermap_*
+    entities:
+      - sun.sun
+      - sensor.day
+      - sensor.time
+      - sensor.time_date
+      - sensor.calendar_day
+      - sensor.calendar_month
+      - sensor.calendar_weekday
+      - sensor.date
+      - input_select.homeos_theme_selection
+      - input_select.homeos_map_layer_selection
+      - number.motionsensor_test_detection_interval

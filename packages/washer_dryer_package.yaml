@@ -1,0 +1,38 @@
+# +----------------------------------------------------------------------------+
+# | HOME ASSISTANT PACKAGE                                                     |
+# +----------------------------------------------------------------------------+
+# | Package name: washer-dryer_package.yaml                                    |
+# +----------------------------------------------------------------------------+
+# | Author: Sebastien Logeais                                                  |
+# | Date: 27 October 2023                                                      |
+# +----------------------------------------------------------------------------+
+# | Description:                                                               |
+# | This package contain all entities and value template related to the        |
+# | washer dryer card.                                                         |
+# +----------------------------------------------------------------------------+
+
+# +----------------------------------------------------------------------------+
+# | Description:                                                               |
+# | This sensor create a state for the washing and dryer machine.              |
+# | In my case, I'm using node red to change the state.
+# +----------------------------------------------------------------------------+
+input_select:
+  washing_machine:
+    name: Laveuse
+    icon: mdi:washing-machine
+    options: 
+      - Arrêt               # Off
+      - En marche           # Washing
+      - Cycle terminé       # Done
+    initial: Arrêt
+
+  dryer_machine:
+    name: Sécheuse
+    icon: mdi:tumble-dryer
+    options: 
+      - Arrêt
+      - En marche
+      - Cycle terminé
+    initial: Arrêt
+
+    
