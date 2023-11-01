@@ -2,26 +2,28 @@
 # | File type: Theme                                                           |
 # +----------------------------------------------------------------------------+
 # | Description:                                                               |
-# | This is the dark theme file for HomeOS                                     |
+# | This is the light theme file for HomeOS                                    |
 # +----------------------------------------------------------------------------+
 # | Author: Sebastien Logeais                                                  |
 # +----------------------------------------------------------------------------+
-# | Date: 16 october 2023                                                      |
+# | Date: 29 october 2023                                                      |
 # +----------------------------------------------------------------------------+
 
-background: left top / contain no-repeat fixed url('/local/homeos/background/blue-night.jpg')
+background: left top / contain no-repeat fixed url('/local/homeos/background/blue-day.jpg')
+
 # +----------------------------------------------------------------------------+
 # | General card Custom variable                                               |
 # +----------------------------------------------------------------------------+
-homeos-card-background: rgba(5, 5, 5, 0.7)  # rgba(0, 0, 0, 0.8)
-homeos-card-background-revert: rgba(255,255,255,0.15)
-homeos-card-backdrop-filter: blur(150px) saturate(120%)
-homeos-card-text-color-primary: rgb(255,255,255)      #white
-homeos-card-text-color-secondary: rgba(187,32,62,1)   #red
-homeos-card-text-color-tertiary: rgba(194,194,194,0.8)   #light grey
+homeos-card-background: rgba(255, 255, 255, 0.8)  # rgba(0, 0, 0, 0.8)
+homeos-card-background-revert: rgba(0,0,0,0.15)
+homeos-card-backdrop-filter: blur(150px) saturate(140%) brightness(1.5)
+
+homeos-card-text-color-primary: rgb(0,0,0)      
+homeos-card-text-color-secondary: rgba(0,122,255,0.9)   
+homeos-card-text-color-tertiary: rgba(60,60,60,0.9)   
 
 # +----------------------------------------------------------------------------+
 # | General icon Custom variable                                               |
 # +----------------------------------------------------------------------------+
-homeos-icon-color-primary: rgba(255,255,255,1)
-homeos-icon-color-secondary: rgba(255,255,255,0.4)
+homeos-icon-color-primary: rgba(0,0,0,0.9)
+homeos-icon-color-secondary: rgba(0,0,0,0.4)

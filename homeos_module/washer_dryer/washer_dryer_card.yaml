@@ -36,7 +36,7 @@ cards:
           name:
             - color: black
           state:
-            - color: black
+            - color: rgba(0,0,0,0.7)
           card:
             - background: 'rgba(255, 255, 255, 1)'
 
@@ -91,7 +91,7 @@ cards:
           name:
             - color: black
           state:
-            - color: black
+            - color: rgb(103,206,103)
           card:
             - background: 'rgba(255, 255, 255, 1)'
 

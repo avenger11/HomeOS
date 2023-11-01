@@ -9,10 +9,10 @@ nest/
 tts/
 www/community/
 
-automations.yaml
 secrets.yaml
 scripts.yaml
 scenes.yaml
+group.yaml
 
 *.log*
 *.db*

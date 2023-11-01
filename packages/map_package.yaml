@@ -23,4 +23,5 @@ input_select:
       - light
       - temperature
       - battery
+      - motion_sensor
     initial: light

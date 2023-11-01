@@ -43,3 +43,12 @@
   template:
     - icon_battery
     - house_map_switch_layer
+
+- type: custom:button-card
+  entity: light.applique_salle_de_bain
+  style: 
+    left: 44vw
+    top: 38vw
+  template:
+    - icon_lightbulb_2_fill
+    - light

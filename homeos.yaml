@@ -30,8 +30,14 @@
 homeos_configuration:
 
 # Apps Bar
-  climate: &config_climate  'climate.entryway'
-  alarm:   &config_alarm    'alarm_control_panel.alarme'
+# +----------+--------------------+-------------------------------------------+
+# | Name     | Anchor Name        | Entity or icon svg to change              |
+# +----------+--------------------+-------------------------------------------+
+  climate:    &config_climate       'climate.entryway'
+  alarm:      &config_alarm         'alarm_control_panel.alarmo'
+  apps1:      &config_apps1         'group.docker_update'
+  apps1_icon: &config_apps1_icon    '/local/homeos/appsbar_media/icon_docker.jpg'
+
 
 # Scene Configuration
 # +---+---+
@@ -39,7 +45,7 @@ homeos_configuration:
 # +---+---+
 # | 3 | 4 |
 # +---+---+
-# 
+#
 # +----------+--------------------+-------------------------------------------+
 # | Name     | Anchor Name        | Entity or icon svg to change              |
 # +----------+--------------------+-------------------------------------------+
@@ -63,16 +69,11 @@ homeos_configuration:
 
 
 
+
+
 # ==============================================================================
 # | Do not change code after this box                                          |
 # ==============================================================================
-
-
-
-
-
-
-
 
 
 kiosk_mode:
@@ -139,11 +140,10 @@ views:
               top: 3vw
               left: calc(var(--homeos-appsbar-width) / 2 + 0.3vw)
 
-
           - type: custom:button-card
             entity: *config_alarm
             template:
-              - icon_light_beacon_max_fill
+              - icon_shield_fill
               - template_system_icon
             style:
               left: calc(var(--homeos-appsbar-width) / 2)
@@ -152,7 +152,24 @@ views:
               custom_fields:
                 icon: 
                   - width: calc( var(--homeos-appsbar-width) - 2.5vw)
-                
+     
+          - type: custom:hui-element
+            card_type: vertical-stack
+            style:
+              top: 30vw
+              left: calc(var(--homeos-appsbar-width) / 2)
+            cards:
+
+              # Separator
+              # - type: custom:button-card
+              #   template: template_apps_separator
+
+              - type: custom:button-card
+                entity: *config_apps1
+                entity_picture: *config_apps1_icon
+                template:
+                  - template_apps_icon
+
           - type: custom:button-card
             style:
               left: calc(var(--homeos-appsbar-width) / 2)

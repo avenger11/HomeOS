@@ -37,20 +37,16 @@ template_garbage:
       icon:
         - margin: 0.6vw
 
-
   state:
     - value: 'on'
       styles:
-        img_cell:
-          - background: 'rgb(90,201,186)'
-          - animation: blink 2s ease infinite
         name:
           - color: black
         label:
           - color: black
         card:
-          - background: 'rgba(255, 255, 255, 1)'
-
+          - background: rgba(255, 255, 255, 0.9)
+          #- animation: blink 3s ease infinite
 
   style: |
     ha-card {

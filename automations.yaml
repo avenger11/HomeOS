@@ -1,0 +1,7 @@
+- alias: simple_healthcheck_keepalive
+  trigger:
+  - platform: time_pattern
+    seconds: /10
+  action:
+  - event: simple_healthcheck_event
+  id: 7df7564919cb46cbb1a49efc4b661e7a

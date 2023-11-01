@@ -1,0 +1,12 @@
+  - name: Alarme
+    mode: accessory
+    port: 51820
+    device_class: alarm
+    filter:
+      include_entities:
+        - alarm_control_panel.alarmo
+    entity_config:
+      alarm_control_panel.alarmo:
+        name: Alarme
+        code: !secret Alarm_code
+

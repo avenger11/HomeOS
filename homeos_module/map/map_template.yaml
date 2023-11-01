@@ -41,7 +41,7 @@ light:
   styles:
     custom_fields:
       icon:
-        - width: 3vw
+        - width: 2.7vw
     card:
       - width: 5vw
       - height: 5vw

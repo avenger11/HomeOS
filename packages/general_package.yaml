@@ -18,3 +18,57 @@ sensor:
       - "time"
       - "date"
       - "time_date"
+
+
+# +----------------------------------------------------------------------------+
+# | AUTOMATION                                                                 |
+# +----------------------------------------------------------------------------+
+automation:
+
+# +----------------------------------------------------------------------------+
+# | Description:                                                               |
+# | This create the automation to change from Dark to Day theme                |
+# | I don't use the default system because it doesn't work well with all tablet|
+# +----------------------------------------------------------------------------+
+  - alias: HomeOS Theme Night
+    description: ''
+    mode: single
+    trigger:
+      platform: state
+      entity_id:
+      - sun.sun
+      to: below_horizon
+      from: above_horizon
+    condition: []
+    action:
+      - service: frontend.set_theme
+        data:
+          mode: dark
+          name: homeos
+      - service: input_select.select_option
+        data:
+          option: homeos_dark
+        target:
+          entity_id: input_select.homeos_theme_selection
+
+  - alias: HomeOS Theme Light
+    description: ''
+    mode: single
+    trigger:
+      platform: state
+      entity_id:
+      - sun.sun
+      to: above_horizon
+      from: below_horizon
+    condition: []
+    action:
+      - service: frontend.set_theme
+        data:
+          mode: light
+          name: homeos
+        
+      - service: input_select.select_option
+        data:
+          option: homeos_light
+        target:
+          entity_id: input_select.homeos_theme_selection

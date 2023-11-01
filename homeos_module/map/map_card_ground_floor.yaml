@@ -44,29 +44,40 @@
     - icon_battery
     - house_map_switch_layer
 
-# - type: custom:button-card
-#   entity: light.dimmerlivingroom
-#   style: 
-#     left: 20vw
-#     top: 16vw
-#   template:
-#     - icon_light_recessed
-#     - light
+- type: custom:button-card
+  entity: input_select.homeos_map_layer_selection
+  style:
+    left: 2.72vw
+    top: 25.2vw
+  tap_action:
+    action: call-service
+    service: input_select.select_option
+    service_data:
+      option: motion_sensor
+    target:
+      entity_id: input_select.homeos_map_layer_selection
+  template:
+    - icon_figure_walk
+    - house_map_switch_layer
 
-# - type: custom:button-card
-#   entity: light.shellydimmer2_485519da2364
-#   style: 
-#     left: 15.9vw
-#     top: 32.5vw
-#   template:
-#     - icon_lightbulb_2_fill
-#     - light
+
+
+
   
 - type: custom:button-card
   entity: light.lightstairs_zigbeegroup
   style: 
-    left: 42vw
+    left: 43vw
     top: 22vw
   template:
     - icon_lightbulb_2_fill
+    - light
+
+- type: custom:button-card
+  entity: light.lamp_livingroomentry
+  style: 
+    left: 35vw
+    top: 18vw
+  template:
+    - icon_lamp_ceiling_fill
     - light

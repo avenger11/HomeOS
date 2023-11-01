@@ -24,11 +24,11 @@ lovelace:
       { url: /hacsfiles/button-card/button-card.js,                           type: module },
       { url: /hacsfiles/kiosk-mode/kiosk-mode.js,                             type: module },
       { url: /hacsfiles/lovelace-layout-card/layout-card.js,                  type: module },
+      { url: /hacsfiles/lovelace-hui-element/hui-element.js,                  type: module },
       { url: /local/community/atomic-calendar-revive/atomic-calendar-revive.js,     type: module },
-      { url: /local/community/swipe-card/swipe-card.js,                       type: module },     
+      { url: /local/community/swipe-card/swipe-card.js,                       type: module },   
       { url: '/local/fonts.css?v=2.1',                                        type: css }
     ]
-
 
 # +----------------------------------------------------------------------------+
 # | Setting for the HomeOs dashboard                                           |
@@ -41,15 +41,29 @@ lovelace:
         icon: phu:homekit
         show_in_sidebar: true
 
+
+
 homeassistant:
   packages: !include_dir_named packages
   customize: !include customize.yaml
   allowlist_external_dirs:
     - /config
 
-automation: !include automations.yaml
+# +----------------------------------------------------------------------------+
+# | Setting for the HomeOs Automation                                          |
+# +----------------------------------------------------------------------------+
+#automation homeos: !include homeos_automation.yaml  # Automation for HomeOS
+automation: !include automations.yaml               # your personal automation
+
+
+
+
 script: !include scripts.yaml
 scene: !include scenes.yaml
+homekit: !include homekit.yaml
+group: !include group.yaml
+
+
 # +----------------------------------------------------------------------------+
 # |  This is for the container health check                                    |
 # +----------------------------------------------------------------------------+
@@ -76,7 +90,6 @@ recorder:
       - sensor.openweathermap_*
     entities:
       - sun.sun
-      - sensor.day
       - sensor.time
       - sensor.time_date
       - sensor.calendar_day

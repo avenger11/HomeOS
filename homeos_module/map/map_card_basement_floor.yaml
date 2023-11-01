@@ -43,3 +43,12 @@
   template:
     - icon_battery
     - house_map_switch_layer
+
+- type: custom:button-card
+  entity: switch.switch_basement
+  style: 
+    left: 25vw
+    top: 14vw
+  template:
+    - icon_lightbulb_2_fill
+    - light
