@@ -7,6 +7,11 @@
 
 This is my dashboard for Home Assistant currently in complete recode from scratch.
 
+As of 31 October 2023
+
+![image](https://github.com/avenger11/HomeOS/assets/37946892/67b3fb8a-bd04-4db6-89a9-fab2c7f1a365)
+
+
 As of 28 October 2023
 ![image](https://github.com/avenger11/HomeOS/assets/37946892/a5c1867b-0695-4c1d-bab9-89fe3c0d9682)
 
