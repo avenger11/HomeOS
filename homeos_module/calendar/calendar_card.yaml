@@ -42,7 +42,8 @@ styles:
     - backdrop-filter: var(--homeos-card-backdrop-filter)
     - border-radius: var(--homeos-card-border-radius)
     - box-shadow: var(--homeos-card-box-shadow)
-    - border-style: none
+    - border-style: var(--homeos-card-border-style)
+    - border-color: var(--homeos-card-border-color)
     - padding: 4% #all side
     - height: 100%
   state: # style for text day
@@ -99,18 +100,17 @@ custom_fields:
             padding: 0 !important;
           }
           .event-right-bottom {
-            --time-color: var(--homeos-card-text-color-primary) !important;
+            --time-color: var(--homeos-card-text-color-revert) !important;
             --time-size: 1.3vw !important;
             font-weight: 300;
             background-color: var(--homeos-card-background-revert); 
-            border-radius: 0 0 0.5vw 0.5vw;
+            border-radius: 0 0 1vw 1vw;
             padding-left: 1vw !important;
             text-align: left !important;
             width: auto !important;
             padding-bottom: 0.3vw;
           }
           .event-right-top {
-            color: var(--homeos-card-text-color-primary) !important;
             font-weight: 400;
             font-size: 1.6vw !important;
             overflow: hidden;
@@ -119,11 +119,13 @@ custom_fields:
             width: auto !important;
             text-align: left;
             padding-left: 1vw;
-            border-radius: 0.5vw 0.5vw 0 0;
+            border-radius: 1vw 1vw 0 0;
             background-color: var(--homeos-card-background-revert); 
             width: 100%;
             padding-top: 0.3vw;
-            
+          }
+          .event-title {
+            color: var(--homeos-card-text-color-revert) !important;
           }
           .relativeTime {
             --time-color: var(--homeos-card-text-color-secondary) !important;

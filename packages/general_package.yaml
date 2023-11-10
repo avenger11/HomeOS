@@ -34,17 +34,28 @@ automation:
     description: ''
     mode: single
     trigger:
-      platform: state
-      entity_id:
-      - sun.sun
-      to: below_horizon
-      from: above_horizon
+      - platform: state
+        entity_id:
+        - sun.sun
+        from: above_horizon
+        to: below_horizon
+      - platform: state
+        entity_id:
+        - input_select.homeos_theme_selection
+        from: homeos_light
+        to: homeos_dark
+
     condition: []
     action:
       - service: frontend.set_theme
         data:
           mode: dark
           name: homeos
+      - service: browser_mod.set_theme
+        data:
+          dark: dark
+        target:
+          entity_id: binary_sensor.wall_tablet_browser_dark_mode
       - service: input_select.select_option
         data:
           option: homeos_dark
@@ -55,18 +66,27 @@ automation:
     description: ''
     mode: single
     trigger:
-      platform: state
-      entity_id:
-      - sun.sun
-      to: above_horizon
-      from: below_horizon
+      - platform: state
+        entity_id:
+        - sun.sun
+        to: above_horizon
+        from: below_horizon
+      - platform: state
+        entity_id:
+        - input_select.homeos_theme_selection
+        from: homeos_dark
+        to: homeos_light
     condition: []
     action:
       - service: frontend.set_theme
         data:
           mode: light
           name: homeos
-        
+      - service: browser_mod.set_theme
+        data:
+          dark: light
+        target:
+          entity_id: binary_sensor.wall_tablet_browser_dark_mode
       - service: input_select.select_option
         data:
           option: homeos_light

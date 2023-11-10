@@ -99,3 +99,11 @@ recorder:
       - input_select.homeos_theme_selection
       - input_select.homeos_map_layer_selection
       - number.motionsensor_test_detection_interval
+
+
+# sensor:
+#   - platform: template
+#     sensors:
+#       update_count:
+#         friendly_name: "Mise à jour disponible"
+#         value_template: "{{ group.docker_update | selectattr( 'state', '==', 'on') | list | length }}"

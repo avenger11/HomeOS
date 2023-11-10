@@ -12,13 +12,16 @@ cards:
         - padding: 0.75vw 0.75vw 0.75vw 0.75vw
         - border-radius: var(--homeos-card-border-radius)
         - box-shadow: var(--homeos-card-box-shadow)
+        - border-style: var(--homeos-card-border-style)
+        - border-color: var(--homeos-card-border-color)
+        - border-width: 1px
       grid:
         - grid-template-areas: '"icon n" "icon s"'
-        - grid-template-columns: 4vw 1fr
+        - grid-template-columns: 3.5vw 1fr
         - grid-template-rows: 1fr 1fr
       name:
         - justify-self: start
-        - font-size: 1.2vw
+        - font-size: 1.1vw
         - font-weight: 600
         - color: var(--homeos-card-text-color-primary)
         - align-self: end
@@ -26,17 +29,18 @@ cards:
         - justify-self: start
         - font-size: 1vw
         - font-weight: 600
-        - color: var(--homeos-card-text-color-secondary)
+        - color: var(--homeos-card-text-color-tertiary)
+        - align-self: start
       custom_fields:
         icon:
           - margin: 0.6vw
     state:
-      - value: "Cycle terminé"
+      - value: "Terminé"
         styles:
           name:
-            - color: black
+            - color: var(--homeos-card-text-color-secondary)
           state:
-            - color: rgba(0,0,0,0.7)
+            - color: var(--homeos-card-text-color-secondary)
           card:
             - background: 'rgba(255, 255, 255, 1)'
 
@@ -44,8 +48,7 @@ cards:
       ha-card {
         background: var(--homeos-card-background);
         backdrop-filter: var(--homeos-card-backdrop-filter) !important;
-        box-shadow: none; 
-        border-width: 0px;                
+        box-shadow: none;           
       }   
     tap_action:
       action: none
@@ -64,16 +67,19 @@ cards:
     styles:
       card:
         - height: 5vw
-        - padding: 0.75vw 0.75vw 0.75vw 0.75vw
+        - padding: 0.75vw 0.75vw 0.75vw 0.4vw
         - border-radius: var(--homeos-card-border-radius)
         - box-shadow: var(--homeos-card-box-shadow)
+        - border-style: var(--homeos-card-border-style)
+        - border-color: var(--homeos-card-border-color)
+        - border-width: 1px
       grid:
         - grid-template-areas: '"icon n" "icon s"'
-        - grid-template-columns: 4vw 1fr
+        - grid-template-columns: 3.5vw 1fr
         - grid-template-rows: 1fr 1fr
       name:
         - justify-self: start
-        - font-size: 1.2vw
+        - font-size: 1.1vw
         - font-weight: 600
         - color: var(--homeos-card-text-color-primary)
         - align-self: end
@@ -81,17 +87,19 @@ cards:
         - justify-self: start
         - font-size: 1vw
         - font-weight: 600
-        - color: var(--homeos-card-text-color-secondary)
+        - color: var(--homeos-card-text-color-tertiary)
+        - align-self: start
+
       custom_fields:
         icon:
           - margin: 0.6vw
     state:
-      - value: "Cycle terminé"
+      - value: "Terminé"
         styles:
           name:
-            - color: black
+            - color: var(--homeos-card-text-color-secondary)
           state:
-            - color: rgb(103,206,103)
+            - color: var(--homeos-card-text-color-secondary)
           card:
             - background: 'rgba(255, 255, 255, 1)'
 
@@ -100,7 +108,7 @@ cards:
         background: var(--homeos-card-background);
         backdrop-filter: var(--homeos-card-backdrop-filter) !important;
         box-shadow: none; 
-        border-width: 0px;                
+           
       }   
     tap_action:
       action: none

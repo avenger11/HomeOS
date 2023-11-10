@@ -61,9 +61,6 @@
     - house_map_switch_layer
 
 
-
-
-  
 - type: custom:button-card
   entity: light.lightstairs_zigbeegroup
   style: 
@@ -80,4 +77,13 @@
     top: 18vw
   template:
     - icon_lamp_ceiling_fill
+    - light
+
+- type: custom:button-card
+  entity: light.leviton_dimmer_164a98
+  style: 
+    left: 18vw
+    top: 16vw
+  template:
+    - icon_light_recessed
     - light

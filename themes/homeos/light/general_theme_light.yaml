@@ -8,22 +8,28 @@
 # +----------------------------------------------------------------------------+
 # | Date: 29 october 2023                                                      |
 # +----------------------------------------------------------------------------+
-
 background: left top / contain no-repeat fixed url('/local/homeos/background/blue-day.jpg')
 
 # +----------------------------------------------------------------------------+
 # | General card Custom variable                                               |
 # +----------------------------------------------------------------------------+
-homeos-card-background: rgba(255, 255, 255, 0.8)  # rgba(0, 0, 0, 0.8)
-homeos-card-background-revert: rgba(0,0,0,0.15)
+homeos-card-background: rgba(255,255,255,0.8)  # rgba(0, 0, 0, 0.8)
+homeos-card-background-revert: rgba(0,0,0,0.30)
 homeos-card-backdrop-filter: blur(150px) saturate(140%) brightness(1.5)
+homeos-card-border-color: rgba(255,255,255,0.5)
 
-homeos-card-text-color-primary: rgb(0,0,0)      
-homeos-card-text-color-secondary: rgba(0,122,255,0.9)   
-homeos-card-text-color-tertiary: rgba(60,60,60,0.9)   
+# +----------------------------------------------------------------------------+
+# | General text Custom variable                                               |
+# +----------------------------------------------------------------------------+
+homeos-card-text-color-primary: rgb(0,0,0)
+homeos-card-text-color-secondary: rgba(0,122,255,0.9)
+homeos-card-text-color-tertiary: rgba(60,60,60,0.9)
+homeos-card-text-color-revert: rgba(255,255,255,1)
 
 # +----------------------------------------------------------------------------+
 # | General icon Custom variable                                               |
 # +----------------------------------------------------------------------------+
-homeos-icon-color-primary: rgba(0,0,0,0.9)
-homeos-icon-color-secondary: rgba(0,0,0,0.4)
+homeos-icon-color-primary: rgba(10,10,10,0.9)
+homeos-icon-color-secondary: rgba(10,10,10,0.4)
+homeos-icon-color-primary-revert: rgba(255,255,255,0.8)
+homeos-icon-color-secondary-revert: rgba(255,255,255,0.5)

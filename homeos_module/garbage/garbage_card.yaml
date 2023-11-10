@@ -1,6 +1,9 @@
 template_garbage:
   label: >
     [[[
+      if (entity.state === 'on') {
+      return 'Maintenant' ;
+      }
       let nextEvent = entity.attributes.next_event;
       let nextEventTimestamp = new Date(nextEvent);
       let daysOfWeek = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'vendredi', 'Saturday'];
@@ -13,16 +16,19 @@ template_garbage:
   styles:
     card:
       - height: 5vw
-      - padding: 0.75vw 0.75vw 0.75vw 0.75vw
+      - padding: 0.75vw 0.75vw 0.75vw 0.4vw
       - border-radius: var(--homeos-card-border-radius)
       - box-shadow: var(--homeos-card-box-shadow)
+      - border-style: var(--homeos-card-border-style)
+      - border-color: var(--homeos-card-border-color)
+      - border-width: 1px
     grid:
       - grid-template-areas: '"icon n" "icon l"'
-      - grid-template-columns: 4vw 1fr
+      - grid-template-columns: 3.5vw 1fr
       - grid-template-rows: 1fr 1fr
     name:
       - justify-self: start
-      - font-size: 1.2vw
+      - font-size: 1.1vw
       - font-weight: 600
       - color: var(--homeos-card-text-color-primary)
       - align-self: end
@@ -31,7 +37,7 @@ template_garbage:
       - justify-self: start
       - font-size: 1vw
       - font-weight: 600
-      - color: var(--homeos-card-text-color-secondary)
+      - color: var(--homeos-card-text-color-tertiary)
 
     custom_fields:
       icon:
@@ -41,11 +47,11 @@ template_garbage:
     - value: 'on'
       styles:
         name:
-          - color: black
+          - color: var(--homeos-card-text-color-secondary)
         label:
-          - color: black
+          - color: var(--homeos-card-text-color-secondary)
         card:
-          - background: rgba(255, 255, 255, 0.9)
+          - background: rgba(255, 255, 255, 1)
           #- animation: blink 3s ease infinite
 
   style: |
@@ -53,7 +59,6 @@ template_garbage:
       background: var(--homeos-card-background);
       backdrop-filter: var(--homeos-card-backdrop-filter) !important;
       box-shadow: none; 
-      border-width: 0px;
     }   
   tap_action:
     action: none

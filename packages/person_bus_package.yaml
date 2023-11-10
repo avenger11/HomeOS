@@ -1,0 +1,17 @@
+
+sensor:
+  # Documentation
+  # https://developpeurs.stm.info/documentation/gtfsrtv2
+  # https://github.com/zacs/ha-gtfs-rt/issues/22
+
+  - platform: gtfs_rt
+    trip_update_url: "https://api.stm.info/pub/od/gtfs-rt/ic/v2/tripUpdates"
+    vehicle_position_url: "https://api.stm.info/pub/od/gtfs-rt/ic/v2/vehiclePositions"
+    apikey: !secret gtfs_rt_apikey
+    departures:
+      - name: "191 Bus Est"
+        route: 191
+        stopid: 57237
+      - name: "491 Express Est"
+        route: 491
+        stopid: 57244

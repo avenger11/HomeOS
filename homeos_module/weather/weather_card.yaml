@@ -15,7 +15,7 @@ style: |
   ha-card {
     border-radius: var(--homeos-card-border-radius) !important;
     box-shadow: var(--homeos-card-box-shadow);
-    border-style: var(--homeos-card-border-style);
+    border-style: none;
   }
 
 elements:
@@ -123,7 +123,7 @@ elements:
       font-weight: lighter
       text-align: right
       left: 50%
-      top: 11%
+      top: 15%
       text-shadow: 0px 0px 10px rgba(0,0,0,0.4)
     tap_action:
       action: none
@@ -132,7 +132,7 @@ elements:
     entity: sensor.weather_current_condition
     style:
       left: 50%
-      top: 22%
+      top: 26%
       text-align: center
       font-weight: 400
       font-size: 2vw
@@ -143,7 +143,7 @@ elements:
     entity: sensor.weather_high_low_temp
     style:
       left: 50%
-      top: 27%
+      top: 31%
       text-align: center
       font-weight: 400
       font-size: 2vw
@@ -152,7 +152,7 @@ elements:
 
   - type: custom:mod-card
     style:
-      top: 52%
+      top: 60%
       left: 50%
       width: 95%
     card:

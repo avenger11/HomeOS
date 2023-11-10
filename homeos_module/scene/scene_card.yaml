@@ -18,15 +18,18 @@ template_scene:
       - border-radius:  var(--homeos-card-border-radius)
       - backdrop-filter: none
       - background: var(--homeos-card-background-revert)
-      - border-width: 0px
+      - border-style: none
       - height: 100%
     custom_fields:
       icon:
-        - position: absolute
         - width: 3vw
-        - left: 1vw
-        - display: flex
-
+        - display: 
+        - justify-self: center
+    grid:
+      - grid-template-areas: |
+          "icon"
+      - grid-template-columns: auto
+      - grid-template-row: auto
   variables:
     state: > #send the state to the svg icon
       [[[ return !entity || entity.state; ]]]

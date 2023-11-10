@@ -12,17 +12,18 @@ homeos:
 # +----------------------------------------------------------------------------+
 # | Layout variable                                                            |
 # +----------------------------------------------------------------------------+
-  homeos-screen-height: 62.6vw # 16/9 ratio
-  homeos-topbar-height: 3vw
+  homeos-screen-height: 800px #FireHD height
+  homeos-topbar-height: 3.5vw
   homeos-appsbar-width: 6vw
   homeos-card-grid-gap: 0.6vw
-  
+  homeos-card-grid-square: calc( (var(--homeos-screen-height) - var(--homeos-topbar-height) - (6 * (var(--homeos-card-grid-gap))))/5 )
+
 # +----------------------------------------------------------------------------+
 # | General card Custom variable                                               |
 # +----------------------------------------------------------------------------+
   homeos-card-border-radius: 2.5vw
-  homeos-card-box-shadow: 0px 0px 0.5vw 0vw rgba(0,0,0,0.8)
-  homeos-card-border-style: none
+  homeos-card-box-shadow: 0px 0px 0.5vw 0vw rgba(0,0,0,0.6)
+  homeos-card-border-style: solid
 
 # +----------------------------------------------------------------------------+
 # | Apple Fonts                                                                |
@@ -38,6 +39,7 @@ homeos:
   ha-card-header-font-family: var(--primary-font-family)
   mdc-typography-body1-font-family: var(--primary-font-family)
   mdc-typography-font-family: var(--primary-font-family)  
+
 
 # +----------------------------------------------------------------------------+
 # | Definition of the light and dark mode                                      |

@@ -1,12 +1,21 @@
-  - name: Alarme
-    mode: accessory
-    port: 51820
-    device_class: alarm
-    filter:
-      include_entities:
-        - alarm_control_panel.alarmo
-    entity_config:
-      alarm_control_panel.alarmo:
-        name: Alarme
-        code: !secret Alarm_code
+- name: Alarme
+  mode: accessory
+  port: 51820
+  device_class: alarm
+  filter:
+    include_entities:
+      - alarm_control_panel.alarmo
+  entity_config:
+    alarm_control_panel.alarmo:
+      name: Alarme
+      code: !secret Alarm_code
 
+- name: Light
+  mode: bridge
+  port: 51821
+  filter:
+    include_entities:    
+      - light.light_bedclarabedroom
+  entity_config:
+    light.light_bedclarabedroom:
+      name: Guirlande

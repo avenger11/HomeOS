@@ -23,7 +23,7 @@ input_select:
     options: 
       - Arrêt               # Off
       - En marche           # Washing
-      - Cycle terminé       # Done
+      - Terminé             # Done
     initial: Arrêt
 
   dryer_machine:
@@ -32,7 +32,7 @@ input_select:
     options: 
       - Arrêt
       - En marche
-      - Cycle terminé
+      - Terminé
     initial: Arrêt
 
     

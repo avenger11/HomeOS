@@ -120,7 +120,7 @@ card:
       style: |
         ha-card {
           border-radius: var(--homeos-card-border-radius) !important ;
-          border-style: var(--homeos-card-border-style) !important;
+          border-style: none !important;
         }
       elements: !include map_card_basement_floor.yaml
 
@@ -132,7 +132,7 @@ card:
       style: |
         ha-card {
           border-radius: var(--homeos-card-border-radius) !important ;
-          border-style: var(--homeos-card-border-style) !important;
+          border-style: none !important;
         }
       elements: !include map_card_ground_floor.yaml
 
@@ -144,6 +144,6 @@ card:
       style: |
         ha-card {
           border-radius: var(--homeos-card-border-radius) !important ;
-          border-style: var(--homeos-card-border-style) !important;
+          border-style: none !important;
         }
       elements: !include map_card_first_floor.yaml

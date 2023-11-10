@@ -12,8 +12,6 @@ template_topbar_time:
       - font-size: 2.7vw
       - letter-spacing: "-0.1vw"
       - font-weight: 400
-      # - mix-blend-mode: screen
-      #filter: contrast(1)
   action: none
   hold_action: none
   tap_action: none

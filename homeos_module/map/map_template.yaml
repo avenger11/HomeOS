@@ -48,7 +48,7 @@ light:
       - borderRadius: 50%
       - border-width: 0px
       - background-color: >
-          [[[ return (entity.state === 'on' ) ? 'rgba(252, 204, 17, 1.0)' : 'rgba(25,25,25,1)'; ]]]
+          [[[ return (entity.state === 'on' ) ? 'var(--homeos-map-icon-background-on)' : 'var(--homeos-map-icon-background-off)'; ]]]
     grid:
       - grid-template-areas: |
           "icon"
