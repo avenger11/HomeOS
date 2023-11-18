@@ -65,7 +65,7 @@
   entity: light.lightstairs_zigbeegroup
   style: 
     left: 43vw
-    top: 22vw
+    top: 23vw
   template:
     - icon_lightbulb_2_fill
     - light
@@ -83,7 +83,7 @@
   entity: light.leviton_dimmer_164a98
   style: 
     left: 18vw
-    top: 16vw
+    top: 14vw
   template:
     - icon_light_recessed
     - light

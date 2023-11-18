@@ -47,8 +47,8 @@
 - type: custom:button-card
   entity: light.applique_salle_de_bain
   style: 
-    left: 44vw
-    top: 38vw
+    left: 42vw
+    top: 37vw
   template:
     - icon_lightbulb_2_fill
     - light

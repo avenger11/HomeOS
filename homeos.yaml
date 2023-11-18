@@ -39,6 +39,7 @@ homeos_configuration:
   apps1_icon: &config_apps1_icon    '/local/homeos/appsbar_media/icon_docker.jpg'
 
 
+
 # Scene Configuration
 # +---+---+
 # | 1 | 2 |
@@ -70,12 +71,12 @@ homeos_configuration:
 # Person Card 
   person_bus:   &config_person_bus    'person.lynn'
   bus_route:    &config_bus_route     'sensor.491_express_est'
+  person_car:   &config_person_car    'person.seb'
 
 
 # ==============================================================================
 # | Do not change code after this box                                          |
 # ==============================================================================
-
 
 kiosk_mode:
   hide_header: true
@@ -210,7 +211,7 @@ views:
           margin: 0
           padding: 0
           grid-template-areas: |
-            "notification xtime"
+            "notification time"
         cards:
           - type: custom:button-card
             view_layout:
@@ -241,7 +242,7 @@ views:
 
           - type: custom:button-card
             view_layout:
-              grid_area: xtime
+              grid_area: time
             entity: sensor.time
             show_state: true
             show_icon: false
@@ -257,8 +258,9 @@ views:
                 - border-color: rgba(0,0,0,0)
                 - height: var(--homeos-topbar-height)
               state:
-                - color: rgba(240,240,240,0.2)
                 - font-size: 3vw
+                - color: white
+                - mix-blend-mode: overlay
               custom_fields:
                 layer_1:
                   - position: absolute
@@ -273,8 +275,7 @@ views:
                   - display: flex
                   - font-size: 3vw
                   - transform: translate(0,0)
-                  - mix-blend-mode: overlay
-                  - color: white
+                  - color: rgba(240,240,240,0.8)
                   - justify-self: center 
             custom_fields:
               layer_1: >
@@ -306,7 +307,7 @@ views:
             padding: var(--homeos-card-grid-gap)
             grid-template-areas: |
               "weather  weather  map map map map scene person_bus"
-              "weather  weather  map map map map 2 ."
+              "weather  weather  map map map map box box"
               "weather  weather  map map map map 3 ."
               "calendar calendar map map map map 4 ."
               "calendar calendar garbage washer . . 5 ."
@@ -438,7 +439,7 @@ views:
                       - icon_arrow3_trianglepath
         
 # +----------------------------------------------------------------------------+
-# | Map Area Definition                                                        |
+# | Washer Dryer Area Definition                                               |
 # +----------------------------------------------------------------------------+
             - type: custom:mod-card
               view_layout:
@@ -475,3 +476,30 @@ views:
                   template:
                     - template_person_bus
                     - icon_bus_fill
+
+# +----------------------------------------------------------------------------+
+# | Package Area Definition                                                    |
+# +----------------------------------------------------------------------------+
+
+            - type: custom:mod-card
+              view_layout:
+                grid-area: box
+              style: |
+                ha-card {
+                  display: contents;   
+                }
+                :host {
+                  margin: 0px !important;
+                }             
+              card:
+                type: vertical-stack
+                cards:
+                  - type: custom:seventeen-track-card
+                    entity:
+                      - sensor.seventeentrack_packages_delivered
+                  - type: custom:seventeen-track-card
+                    entity:
+                      - sensor.seventeentrack_packages_ready_to_be_picked_up
+                  - type: custom:seventeen-track-card
+                    entity:
+                      - sensor.seventeentrack_packages_in_transit

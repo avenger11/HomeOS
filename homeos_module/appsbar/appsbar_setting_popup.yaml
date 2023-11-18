@@ -43,3 +43,5 @@ browser_mod:
           entities:
             - entity: input_select.homeos_theme_selection
               name: Theme
+            - entity: input_boolean.automation_exterior_christmas_light
+              name: Lumière de Noël extérieure

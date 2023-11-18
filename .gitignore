@@ -8,6 +8,7 @@ deps/
 nest/
 tts/
 www/community/
+image/
 
 secrets.yaml
 scripts.yaml

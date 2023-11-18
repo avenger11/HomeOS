@@ -1,0 +1,79 @@
+
+
+template_person_car:
+  show_entity_picture: true
+  show_name: false
+  show_state: true
+  show_label: false
+  show_icon: false
+  style: |
+    :host {
+      height: 100%;
+    }
+  styles:
+    card:
+      - border-radius: var(--homeos-card-border-radius)
+      - box-shadow: var(--homeos-card-box-shadow)
+      - background-color: var(--homeos-card-background)
+      - backdrop-filter: var(--homeos-card-backdrop-filter)
+      - border-style: var(--homeos-card-border-style)
+      - border-color: var(--homeos-card-border-color)
+      - height: 100%
+    entity_picture:
+      - border-radius: 50%
+    state:
+      - font-size: 1.2vw
+      - font-weight: 600
+      - color: var(--homeos-card-text-color-primary)
+    label:
+      - color: var(--homeos-card-text-color-tertiary)
+      - font-size: 1vw
+      - line-height: 1.2
+      - height: 3vw
+    grid: 
+      - grid-template-areas: | 
+          "i i i i i i" 
+          ". s s s s ."
+          ". icon route due_in next_in ."
+      - grid-template-columns: 1.2fr 1.3vw 2.5vw 2.5vw 2.5vw 1fr
+      - grid-template-rows: 5.5vw 2vw 2vw 
+
+    custom_fields:
+      icon:
+        - margin-top: 0.2vw
+        - width: 1.2vw
+      route:
+        - font-size: 1.1vw
+        - color: var(--homeos-card-text-color-tertiary)
+        - justify-self: flex-start
+      due_in:
+        - background: var(--homeos-card-background-revert)
+        - border-radius: 1vw
+        - font-size: 1.1vw
+        - margin: 0.1vw
+        - color: var(--homeos-card-text-color-revert)
+      next_in:
+        - background: var(--homeos-card-background-revert)
+        - border-radius: 1vw      
+        - font-size: 1.1vw
+        - margin: 0.1vw    
+        - color: var(--homeos-card-text-color-revert)
+
+  custom_fields:
+    route: >
+        [[[
+          return states[variables.bus_sensor].attributes["Route"]
+        ]]]
+    due_in: > 
+        [[[
+          return states[variables.bus_sensor].attributes["Due in"]
+        ]]]
+    next_in: >
+        [[[
+          if (states[variables.bus_sensor].attributes["Next bus due in"]) {
+            return states[variables.bus_sensor].attributes["Next bus due in"]
+          }
+          return '-'
+        ]]]
+
+# [[[ return (entity.state === 'on' ) ? 'var(--homeos-map-icon-background-on)' : 'var(--homeos-map-icon-background-off)'; ]]]

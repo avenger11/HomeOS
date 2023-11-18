@@ -1,0 +1,6 @@
+
+
+sensor:
+  - platform: seventeentrack
+    username: !secret seventeentrack_username
+    password: !secret seventeentrack_password
