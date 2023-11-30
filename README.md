@@ -23,6 +23,11 @@ So today, I'm running Home Assistant, Node-Red, Zigbee2Mqtt, Emqx and MariaDB in
 
 The Wall Mount tablet is a FireHD 10 from amazon running Fully Kiosk Browser.
 
+# As of 28 November 2023
+![image](https://github.com/avenger11/HomeOS/assets/37946892/e4499305-5b18-4817-9e3f-1c159e82ae7c)
+![image](https://github.com/avenger11/HomeOS/assets/37946892/96b1b5c0-ae4e-4961-acb5-c9892fc9713f)
+
+
 # As of 10 November 2023
 ![image](https://github.com/avenger11/HomeOS/assets/37946892/d2426c28-01fb-428d-a587-0cd758c55482)
 ![image](https://github.com/avenger11/HomeOS/assets/37946892/b39fdee5-c7bf-4089-9087-73879321a86d)
