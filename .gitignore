@@ -1,5 +1,6 @@
 !.gitignore
 
+
 .cloud/
 .storage/
 blueprints/
@@ -7,13 +8,15 @@ custom_components/
 deps/
 nest/
 tts/
-www/community/
+www/community/*
+!www/community/homeos/
 image/
 
 secrets.yaml
 scripts.yaml
 scenes.yaml
 group.yaml
+mqtt.yaml
 
 *.log*
 *.db*

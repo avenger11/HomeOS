@@ -45,3 +45,5 @@ browser_mod:
               name: Theme
             - entity: input_boolean.automation_exterior_christmas_light
               name: Lumière de Noël extérieure
+            - entity: input_boolean.automation_christmas_tree
+              name: Lumière du Sapin de Noël

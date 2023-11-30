@@ -284,6 +284,8 @@ views:
                 [[[ return entity.state ]]]                
 
 
+
+
 # +---+------------------------------------------------------------------------+
 # | 3 | Definition of the second custom grid layout                            |
 # +---+------------------------------------------------------------------------+
@@ -306,11 +308,11 @@ views:
             margin: 0
             padding: var(--homeos-card-grid-gap)
             grid-template-areas: |
-              "weather  weather  map map map map scene person_bus"
+              "weather  weather  map map map map . person_bus"
               "weather  weather  map map map map box box"
               "weather  weather  map map map map 3 ."
               "calendar calendar map map map map 4 ."
-              "calendar calendar garbage washer . . 5 ."
+              "calendar calendar garbage washer scene . 5 ."
 
           cards:
 # +----------------------------------------------------------------------------+
@@ -494,12 +496,8 @@ views:
               card:
                 type: vertical-stack
                 cards:
-                  - type: custom:seventeen-track-card
-                    entity:
+                  - type: custom:homeos-delivery-card
+                    entities:
                       - sensor.seventeentrack_packages_delivered
-                  - type: custom:seventeen-track-card
-                    entity:
                       - sensor.seventeentrack_packages_ready_to_be_picked_up
-                  - type: custom:seventeen-track-card
-                    entity:
                       - sensor.seventeentrack_packages_in_transit

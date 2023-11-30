@@ -75,5 +75,3 @@ template_person_bus:
           }
           return '-'
         ]]]
-
-# [[[ return (entity.state === 'on' ) ? 'var(--homeos-map-icon-background-on)' : 'var(--homeos-map-icon-background-off)'; ]]]

@@ -1,3 +1,10 @@
+
+# The HomeKit Bridge integration allows you to make your Home Assistant entities
+# https://www.home-assistant.io/integrations/homekit/
+
+# +----------------------------------------------------------------------------+
+# | Alarm accesory                                                             |
+# +----------------------------------------------------------------------------+
 - name: Alarme
   mode: accessory
   port: 51820
@@ -10,12 +17,69 @@
       name: Alarme
       code: !secret Alarm_code
 
+# +----------------------------------------------------------------------------+
+# | Cover Clara accesory                                                       |
+# +----------------------------------------------------------------------------+
+- name: Cover Bridge
+  mode: accessory
+  port: 51800
+  device_class: cover
+  filter:
+    include_entities:
+      - cover.cover_clarabedroom
+  entity_config:
+    cover.cover_clarabedroom:
+      name: Rideau
+
+
+# +----------------------------------------------------------------------------+
+# | Humidifier  accesory                                                       |
+# +----------------------------------------------------------------------------+
+- name: Humidifier Bridge
+  mode: accessory
+  port: 51801
+  device_class: humidifier
+  filter:
+    include_entities:
+      - humidifier.luh_a602s_wus
+  entity_config:
+    humidifier.luh_a602s_wus:
+      name: Humidificateur
+
+# +----------------------------------------------------------------------------+
+# | LIGHT & SWITCH BRIDGE                                                      |
+# +----------------------------------------------------------------------------+
 - name: Light
   mode: bridge
   port: 51821
   filter:
     include_entities:    
+
+# +----------------------------------------------------------------------------+
+# | LIGHT                                                                      |
+# +----------------------------------------------------------------------------+
       - light.light_bedclarabedroom
+      - light.leviton_dimmer_164a98
+      - light.lamp_livingroomentry
+
+# +----------------------------------------------------------------------------+
+# | SWITCH                                                                     |
+# +----------------------------------------------------------------------------+
+      - switch.switch_basement
+
   entity_config:
+# +----------------------------------------------------------------------------+
+# | LIGHT  CONFIG                                                              |
+# +----------------------------------------------------------------------------+
     light.light_bedclarabedroom:
       name: Guirlande
+    light.leviton_dimmer_164a98:
+      name: Spot
+    light.lamp_livingroomentry:
+      name: Lampe Entrée
+    
+# +----------------------------------------------------------------------------+
+# | SWITCH CONFIG                                                              |
+# +----------------------------------------------------------------------------+
+    switch.switch_basement:
+      name: Global

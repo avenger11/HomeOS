@@ -40,6 +40,21 @@ homeos:
   mdc-typography-body1-font-family: var(--primary-font-family)
   mdc-typography-font-family: var(--primary-font-family)  
 
+# +----------------------------------------------------------------------------+
+# | Apple color                                                                |
+# +----------------------------------------------------------------------------+
+  homeos-apple-color-orange-red: rgba(235, 85, 69, 1.0)
+  homeos-apple-color-orange: rgba(246, 166, 59, 1.0)
+  homeos-apple-color-gold: rgba(252, 204, 17, 1.0)
+  homeos-apple-color-green: rgba(103, 206, 103, 1.0)
+  homeos-apple-color-aqua: rgba(135, 227, 225, 1.0)
+  homeos-apple-color-light-blue: rgba(129, 207, 250, 1.0)
+  homeos-apple-color-turquoise: rgba(106, 197, 221, 1.0)
+  homeos-apple-color-blue: rgba(58, 130, 247, 1.0)
+  homeos-apple-color-purple: rgba(93, 92, 222, 1.0)
+  homeos-apple-color-lavender: rgba(178, 95, 234, 1.0)
+  homeos-apple-color-pinkish-red: rgba(235, 75, 98, 1.0)
+  homeos-apple-color-light-taupe: rgba(167, 143, 109, 1.0)
 
 # +----------------------------------------------------------------------------+
 # | Definition of the light and dark mode                                      |

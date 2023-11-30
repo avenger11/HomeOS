@@ -28,7 +28,7 @@ lovelace:
       { url: /local/community/atomic-calendar-revive/atomic-calendar-revive.js,     type: module },
       { url: /local/community/swipe-card/swipe-card.js,                       type: module },   
       { url: '/local/fonts.css?v=2.1',                                        type: css },
-      { url: '/local/community/seventeen-track/seventeen-track-card.js',      type: js }
+      { url: '/local/community/homeos/homeos-delivery-card.js',               type: js }
     ]
 
 # +----------------------------------------------------------------------------+
@@ -59,7 +59,7 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 homekit: !include homekit.yaml
 group: !include group.yaml
-
+mqtt: !include mqtt.yaml
 
 # +----------------------------------------------------------------------------+
 # |  This is for the container health check                                    |
@@ -96,6 +96,8 @@ recorder:
       - input_select.homeos_theme_selection
       - input_select.homeos_map_layer_selection
       - number.motionsensor_test_detection_interval
+
+
 
 
 # sensor:

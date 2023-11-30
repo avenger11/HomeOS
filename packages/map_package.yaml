@@ -22,6 +22,7 @@ input_select:
     options: 
       - light
       - temperature
+      - humidity
       - battery
       - motion_sensor
     initial: light

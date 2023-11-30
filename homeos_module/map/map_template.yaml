@@ -15,8 +15,6 @@ house_map_switch_layer:
       - height: 3.95vw
       - borderRadius: 50%
       - border-width: 0px
-      - background-color: >
-          [[[ return (entity.state === 'on' ) ? 'var(--homeos-map-pagination-background-on)' : 'var(--homeos-map-pagination-background-off)'; ]]]
       - box-shadow: var(--homeos-map-pagination-shadow)
     custom_fields:
       icon:
@@ -29,7 +27,7 @@ house_map_switch_layer:
     state: > #send the state to the svg icon
       [[[ return !entity || entity.state; ]]]
 
-light:
+template_map_light:
   show_state: false
   show_icon: false
   show_name: false
@@ -57,3 +55,97 @@ light:
   variables:
     state: > #send the state to the svg icon
       [[[ return !entity || entity.state; ]]]
+
+template_map_temperature:
+  show_state: false
+  show_icon: false
+  show_name: false
+  show_label: false
+  tap_action:
+    action: more-info
+  styles:
+    card:
+      - width: 4vw
+      - height: 4vw
+      - borderRadius: 50%
+      - border-width: 0px
+      - background-color: var(--homeos-map-icon-background-off)
+    custom_fields:
+      value:
+        - color: white
+        - font-size: 1.4vw
+        - font-weight: 400
+    grid:
+      - grid-template-areas: |
+          "value"
+      - grid-template-columns: auto
+      - grid-template-row: auto
+  custom_fields:
+    value: >
+      [[[         
+        var temp = parseFloat(entity.state).toFixed(1);
+        return temp + '°';
+      ]]]
+
+template_map_humidity:
+  show_state: false
+  show_icon: false
+  show_name: false
+  show_label: false
+  tap_action:
+    action: more-info
+  styles:
+    card:
+      - width: 4vw
+      - height: 4vw
+      - borderRadius: 50%
+      - border-width: 0px
+      - background-color: var(--homeos-map-icon-background-off)
+    custom_fields:
+      value:
+        - color: white
+        - font-size: 1.4vw
+        - font-weight: 400
+    grid:
+      - grid-template-areas: |
+          "value"
+      - grid-template-columns: auto
+      - grid-template-row: auto
+  custom_fields:
+    value: >
+      [[[         
+        var temp = parseFloat(entity.state).toFixed(0);
+        return temp + '%';
+      ]]]
+
+template_map_battery:
+  show_state: false
+  show_icon: false
+  show_name: false
+  show_label: false
+  tap_action:
+    action: more-info
+  styles:
+    card:
+      - width: 4vw
+      - height: 4vw
+      - borderRadius: 50%
+      - border-width: 0px
+      - background-color: var(--homeos-map-icon-background-off)
+    custom_fields:
+      value:
+        - color: white
+        - font-size: 1.4vw
+        - font-weight: 600
+    grid:
+      - grid-template-areas: |
+          "value"
+          "icon"
+      - grid-template-columns: auto
+      - grid-template-row: 0.8fr 0.2fr
+  custom_fields:
+    value: >
+      [[[         
+        var temp = parseFloat(entity.state).toFixed(0);
+        return temp;
+      ]]]

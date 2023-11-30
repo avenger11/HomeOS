@@ -9,10 +9,12 @@
 # | Date: 8 sep 2023                                                           |
 # +----------------------------------------------------------------------------+
 
-homeos-map-pagination-background-on: rgb(247, 247, 247)
-homeos-map-pagination-background-off: rgb(230, 230, 232)
+homeos-map-pagination-background-on: rgb(255, 255, 255)
+homeos-map-pagination-background-off: rgb(208, 207, 213)
 homeos-map-pagination-text-color: rgb(105, 105, 105)
-homeos-map-pagination-shadow: 0px 0px 13px 2px rgba(0,0,0,0.4)
+homeos-map-pagination-shadow: 0px 0px 0.4vw 0 rgba(0,0,0,0.4)
+homeos-map-pagination-icon-primary-off: rgba(0,0,0,0.6)
+homeos-map-pagination-icon-secondary-off: rgba(0,0,0,0.4)
 
 homeos-map-icon-light-on-primary: rgb(255,255,255,1)
 homeos-map-icon-light-on-secondary: rgb(255,255,255,0.4)

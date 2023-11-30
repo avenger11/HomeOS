@@ -1,3 +1,16 @@
+
+# +----------------------------------------------------------------------------+
+# | Table of contents                                                          |
+# +----------------------------------------------------------------------------+ 
+# | 1 - Map background definition                                              |
+# | 2 - Layer switch definition                                                |
+# | 3 - 
+# +----------------------------------------------------------------------------+ 
+
+
+# +---+------------------------------------------------------------------------+
+# | 1 | Map background definition                                              |
+# +---+------------------------------------------------------------------------+ 
 - type: image
   entity: input_select.homeos_theme_selection
   state_image:
@@ -12,43 +25,168 @@
   tap_action:
     action: none
 
-- type: custom:button-card
-  entity: input_select.homeos_map_layer_selection
-  style:
-    left: 2.72vw
-    top: 15.5vw
-  tap_action:
-    action: call-service
-    service: input_select.select_option
-    service_data:
-      option: temperature
-    target:
-      entity_id: input_select.homeos_map_layer_selection
-  template:
-    - icon_thermometer
-    - house_map_switch_layer
-
-- type: custom:button-card
-  entity: input_select.homeos_map_layer_selection
-  style:
-    left: 2.72vw
-    top: 20.2vw
-  tap_action:
-    action: call-service
-    service: input_select.select_option
-    service_data:
-      option: battery
-    target:
-      entity_id: input_select.homeos_map_layer_selection
-  template:
-    - icon_battery
-    - house_map_switch_layer
-
-- type: custom:button-card
-  entity: switch.switch_basement
+# +---+------------------------------------------------------------------------+
+# | 2 | Layer switch definition                                                |
+# +---+------------------------------------------------------------------------+ 
+- type: custom:layout-card
+  layout_type: custom:vertical-layout
   style: 
-    left: 25vw
-    top: 14vw
-  template:
-    - icon_lightbulb_2_fill
-    - light
+    left: 0.1vw
+    top: 13vw
+    transform: translate(0,0)
+  cards:
+
+    - type: custom:button-card
+      entity: input_select.homeos_map_layer_selection
+      tap_action:
+        action: call-service
+        service: input_select.select_option
+        service_data:
+          option: light
+        target:
+          entity_id: input_select.homeos_map_layer_selection
+      styles:
+        card:
+          - background-color: >
+              [[[ return (entity.state === 'light' ) ? 'var(--homeos-map-pagination-background-on)' : 'var(--homeos-map-pagination-background-off)'; ]]]
+      template:
+        - icon_lightbulb_map_layer_selection
+        - house_map_switch_layer
+
+    - type: custom:button-card
+      entity: input_select.homeos_map_layer_selection
+      tap_action:
+        action: call-service
+        service: input_select.select_option
+        service_data:
+          option: temperature
+        target:
+          entity_id: input_select.homeos_map_layer_selection
+      styles:
+        card:
+          - background-color: >
+              [[[ return (entity.state === 'temperature' ) ? 'var(--homeos-map-pagination-background-on)' : 'var(--homeos-map-pagination-background-off)'; ]]]
+      template:
+        - icon_thermometer
+        - house_map_switch_layer
+
+    - type: custom:button-card
+      entity: input_select.homeos_map_layer_selection
+      tap_action:
+        action: call-service
+        service: input_select.select_option
+        service_data:
+          option: humidity
+        target:
+          entity_id: input_select.homeos_map_layer_selection
+      styles:
+        card:
+          - background-color: >
+              [[[ return (entity.state === 'humidity' ) ? 'var(--homeos-map-pagination-background-on)' : 'var(--homeos-map-pagination-background-off)'; ]]]
+      template:
+        - icon_humidity
+        - house_map_switch_layer
+
+    - type: custom:button-card
+      entity: input_select.homeos_map_layer_selection
+      tap_action:
+        action: call-service
+        service: input_select.select_option
+        service_data:
+          option: battery
+        target:
+          entity_id: input_select.homeos_map_layer_selection
+      styles:
+        card:
+          - background-color: >
+              [[[ return (entity.state === 'battery' ) ? 'var(--homeos-map-pagination-background-on)' : 'var(--homeos-map-pagination-background-off)'; ]]]
+      template:
+        - icon_battery
+        - house_map_switch_layer
+
+    - type: custom:button-card
+      entity: input_select.homeos_map_layer_selection
+      tap_action:
+        action: call-service
+        service: input_select.select_option
+        service_data:
+          option: motion_sensor
+        target:
+          entity_id: input_select.homeos_map_layer_selection
+      styles:
+        card:
+          - background-color: >
+              [[[ return (entity.state === 'motion_sensor' ) ? 'var(--homeos-map-pagination-background-on)' : 'var(--homeos-map-pagination-background-off)'; ]]]
+      template:
+        - icon_figure_walk
+        - house_map_switch_layer
+
+# +---+------------------------------------------------------------------------+
+# | 3 | Light definition                                                       |
+# +---+------------------------------------------------------------------------+ 
+- type: conditional
+  conditions:
+    - entity: input_select.homeos_map_layer_selection
+      state: "light"
+  elements:
+
+    - type: custom:button-card
+      entity: switch.switch_basement
+      style: 
+        left: 25vw
+        top: 14vw
+      template:
+        - icon_lightbulb_2_fill
+        - template_map_light
+
+# +---+------------------------------------------------------------------------+
+# | 3 | temperature definition                                                 |
+# +---+------------------------------------------------------------------------+
+- type: conditional
+  conditions:
+    - entity: input_select.homeos_map_layer_selection
+      state: "temperature"
+  elements:
+
+    - type: custom:button-card
+      entity: sensor.temperaturesensor_basement_temperature
+      style:
+        left: 25vw
+        top: 18vw
+      template:
+        - template_map_temperature
+
+# +---+------------------------------------------------------------------------+
+# | 4 | Humidity definition                                                    |
+# +---+------------------------------------------------------------------------+
+- type: conditional
+  conditions:
+    - entity: input_select.homeos_map_layer_selection
+      state: "humidity"
+  elements:
+
+    - type: custom:button-card
+      entity: sensor.temperaturesensor_basement_humidity
+      style:
+        left: 25vw
+        top: 18vw
+      template:
+        - template_map_humidity
+
+# +---+------------------------------------------------------------------------+
+# | 5 | Battery definition                                                     |
+# +---+------------------------------------------------------------------------+
+- type: conditional
+  conditions:
+    - entity: input_select.homeos_map_layer_selection
+      state: "battery"
+  elements:
+
+    - type: custom:button-card
+      entity: sensor.temperaturesensor_basement_battery
+      style:
+        left: 25vw
+        top: 18vw
+      template:
+        - template_map_battery
+        - icon_thermometer
