@@ -1,3 +1,19 @@
+
+# +----------------------------------------------------------------------------+
+# | Table of contents                                                          |
+# +----------------------------------------------------------------------------+ 
+# | 1 - Map background configuration                                           |
+# | 2 - Layer switch configuration                                             |
+# | 3 - Light configuration                                                    |
+# | 4 - Temperature configuration                                              |
+# | 5 - Humidity configuration                                                 |
+# | 6 - Battery configuration                                                  |
+# | 7 - Motion Sensor configuration                                            |
+# +----------------------------------------------------------------------------+
+
+# +---+------------------------------------------------------------------------+
+# | 1 | Map background configuration                                           |
+# +---+------------------------------------------------------------------------+ 
 - type: image
   entity: input_select.homeos_theme_selection
   state_image:
@@ -12,6 +28,9 @@
   tap_action:
     action: none
 
+# +---+------------------------------------------------------------------------+
+# | 2 | Layer switch configuration                                             |
+# +---+------------------------------------------------------------------------+
 - type: custom:layout-card
   layout_type: custom:vertical-layout
   style: 
@@ -105,39 +124,93 @@
         - icon_figure_walk
         - house_map_switch_layer
 
+# +---+------------------------------------------------------------------------+
+# | 3 | Light configuration                                                    |
+# +---+------------------------------------------------------------------------+
+- type: conditional
+  conditions:
+    - entity: input_select.homeos_map_layer_selection
+      state: "light"
+  elements:
 
-- type: custom:button-card
-  entity: light.lightstairs_zigbeegroup
-  style: 
-    left: 43vw
-    top: 23vw
-  template:
-    - icon_lightbulb_2_fill
-    - template_map_light
+    - type: custom:button-card
+      entity: light.lightstairs_zigbeegroup
+      style: 
+        left: 43vw
+        top: 23vw
+      template:
+        - icon_lightbulb_2_fill
+        - template_map_light
 
-- type: custom:button-card
-  entity: light.lamp_livingroomentry
-  style: 
-    left: 35vw
-    top: 18vw
-  template:
-    - icon_lamp_ceiling_fill
-    - template_map_light
+    - type: custom:button-card
+      entity: light.lamp_livingroomentry
+      style: 
+        left: 35vw
+        top: 18vw
+      template:
+        - icon_lamp_ceiling_fill
+        - template_map_light
 
-- type: custom:button-card
-  entity: light.leviton_dimmer_164a98
-  style: 
-    left: 18vw
-    top: 14vw
-  template:
-    - icon_light_recessed
-    - template_map_light
+    - type: custom:button-card
+      entity: light.leviton_dimmer_164a98
+      style: 
+        left: 18vw
+        top: 14vw
+      template:
+        - icon_light_recessed
+        - template_map_light
 
-- type: custom:button-card
-  entity: light.dimmer_diningroom_shelly_dimmer_2
-  style: 
-    left: 15vw
-    top: 32vw
-  template:
-    - icon_chandelier_fill_2
-    - template_map_light
+    - type: custom:button-card
+      entity: light.dimmer_diningroom_shelly_dimmer_2
+      style: 
+        left: 15vw
+        top: 32vw
+      template:
+        - icon_chandelier_fill_2
+        - template_map_light
+      
+# +---+------------------------------------------------------------------------+
+# | 3 | temperature configuration                                              |
+# +---+------------------------------------------------------------------------+
+
+# +---+------------------------------------------------------------------------+
+# | 4 | Humidity configuration                                                 |
+# +---+------------------------------------------------------------------------+
+
+
+# +---+------------------------------------------------------------------------+
+# | 5 | Battery configuration                                                  |
+# +---+------------------------------------------------------------------------+
+
+# +---+------------------------------------------------------------------------+
+# | 6 | Motion Sensor configuration                                            |
+# +---+------------------------------------------------------------------------+
+- type: conditional
+  conditions:
+    - entity: input_select.homeos_map_layer_selection
+      state: "motion_sensor"
+  elements:
+  
+    - type: custom:button-card
+      entity: binary_sensor.motionsensor_kitchen_occupancy
+      style: 
+        left: 40vw
+        top: 38vw
+      template:
+        - template_map_motion_sensor
+
+    - type: custom:button-card
+      entity: binary_sensor.motionsensor_vestibule_occupancy
+      style: 
+        left: 38vw
+        top: 7vw
+      template:
+        - template_map_motion_sensor
+
+    - type: custom:button-card
+      entity: binary_sensor.motionsensor_bottomstairs_occupancy
+      style: 
+        left: 41vw
+        top: 18vw
+      template:
+        - template_map_motion_sensor

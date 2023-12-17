@@ -1,5 +1,4 @@
 
-
 template_person_car:
   show_entity_picture: true
   show_name: false
@@ -32,10 +31,10 @@ template_person_car:
       - height: 3vw
     grid: 
       - grid-template-areas: | 
-          "i i i i i i" 
-          ". s s s s ."
-          ". icon route due_in next_in ."
-      - grid-template-columns: 1.2fr 1.3vw 2.5vw 2.5vw 2.5vw 1fr
+          "i i i i i" 
+          "s s s s s"
+          ". icon route icon_direction ."
+      - grid-template-columns: 1fr 1.3vw 2.5vw 1.3vw 1fr
       - grid-template-rows: 5.5vw 2vw 2vw 
 
     custom_fields:
@@ -43,37 +42,26 @@ template_person_car:
         - margin-top: 0.2vw
         - width: 1.2vw
       route:
-        - font-size: 1.1vw
-        - color: var(--homeos-card-text-color-tertiary)
-        - justify-self: flex-start
-      due_in:
         - background: var(--homeos-card-background-revert)
         - border-radius: 1vw
         - font-size: 1.1vw
         - margin: 0.1vw
         - color: var(--homeos-card-text-color-revert)
-      next_in:
-        - background: var(--homeos-card-background-revert)
-        - border-radius: 1vw      
-        - font-size: 1.1vw
-        - margin: 0.1vw    
-        - color: var(--homeos-card-text-color-revert)
+
+      icon_direction:
+        - margin-top: 0.2vw
+        - margin-left: 0.2vw
+        - width: 1.2vw
 
   custom_fields:
     route: >
         [[[
-          return states[variables.bus_sensor].attributes["Route"]
-        ]]]
-    due_in: > 
-        [[[
-          return states[variables.bus_sensor].attributes["Due in"]
-        ]]]
-    next_in: >
-        [[[
-          if (states[variables.bus_sensor].attributes["Next bus due in"]) {
-            return states[variables.bus_sensor].attributes["Next bus due in"]
+          if (entity.state === 'home' ) {
+            return states[variables.var_travel_work].state
           }
-          return '-'
+          return states[variables.var_travel_home].state
         ]]]
+  variables:
+    state: > #send the state to the svg icon
+      [[[ return !entity || entity.state; ]]]
 
-# [[[ return (entity.state === 'on' ) ? 'var(--homeos-map-icon-background-on)' : 'var(--homeos-map-icon-background-off)'; ]]]

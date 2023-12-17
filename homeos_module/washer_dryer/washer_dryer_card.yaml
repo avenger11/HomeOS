@@ -43,6 +43,10 @@ cards:
             - color: var(--homeos-card-text-color-secondary)
           card:
             - background: 'rgba(255, 255, 255, 1)'
+      - value: "En marche"
+        styles:
+          state:
+            - color: var(--homeos-card-text-color-secondary)
 
     style: |
       ha-card {
@@ -102,7 +106,10 @@ cards:
             - color: var(--homeos-card-text-color-secondary)
           card:
             - background: 'rgba(255, 255, 255, 1)'
-      
+      - value: "En marche"
+        styles:
+          state:
+            - color: var(--homeos-card-text-color-secondary)
     style: |
       ha-card {
         background: var(--homeos-card-background);

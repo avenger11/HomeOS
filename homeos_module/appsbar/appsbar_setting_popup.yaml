@@ -47,3 +47,5 @@ browser_mod:
               name: Lumière de Noël extérieure
             - entity: input_boolean.automation_christmas_tree
               name: Lumière du Sapin de Noël
+            - entity: input_boolean.automation_living_room_light
+              name: Lumière Salon

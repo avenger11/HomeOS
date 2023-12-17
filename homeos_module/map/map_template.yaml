@@ -51,7 +51,7 @@ template_map_light:
       - grid-template-areas: |
           "icon"
       - grid-template-columns: auto
-      - grid-template-row: auto
+      - grid-template-rows: auto
   variables:
     state: > #send the state to the svg icon
       [[[ return !entity || entity.state; ]]]
@@ -79,7 +79,7 @@ template_map_temperature:
       - grid-template-areas: |
           "value"
       - grid-template-columns: auto
-      - grid-template-row: auto
+      - grid-template-rows: auto
   custom_fields:
     value: >
       [[[         
@@ -110,7 +110,7 @@ template_map_humidity:
       - grid-template-areas: |
           "value"
       - grid-template-columns: auto
-      - grid-template-row: auto
+      - grid-template-rows: auto
   custom_fields:
     value: >
       [[[         
@@ -132,20 +132,57 @@ template_map_battery:
       - borderRadius: 50%
       - border-width: 0px
       - background-color: var(--homeos-map-icon-background-off)
-    custom_fields:
-      value:
-        - color: white
-        - font-size: 1.4vw
-        - font-weight: 600
     grid:
       - grid-template-areas: |
           "value"
           "icon"
       - grid-template-columns: auto
-      - grid-template-row: 0.8fr 0.2fr
+      - grid-template-rows: 1fr 1fr
+    custom_fields:
+      value:
+        - color: white
+        - font-size: 1.4vw
+        - font-weight: 600
+      icon:
+        - width: 1.6vw
+        - align-items: center
+        - margin: auto
+        - padding-left: 0.1vw
   custom_fields:
     value: >
       [[[         
         var temp = parseFloat(entity.state).toFixed(0);
         return temp;
       ]]]
+  variables:
+    state: " "
+
+template_map_motion_sensor:
+  show_state: false
+  show_icon: false
+  show_name: false
+  show_label: false
+  tap_action:
+    action: more-info
+
+  styles:
+    custom_fields:
+      icon:
+        - width: 2.7vw
+    card:
+      - width: 4vw
+      - height: 4vw
+      - borderRadius: 50%
+      - border-width: 0px
+      - background-color: >
+          [[[ return (entity.state === 'on' ) ? 'var(--homeos-map-pagination-background-on)' : 'var(--homeos-map-pagination-background-off)'; ]]]
+    grid:
+      - grid-template-areas: |
+          "icon"
+      - grid-template-columns: auto
+      - grid-template-rows: auto
+  variables:
+    state: > #send the state to the svg icon
+      [[[ return !entity || entity.state; ]]]
+  template:
+    - icon_figure_walk

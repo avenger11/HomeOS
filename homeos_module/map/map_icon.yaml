@@ -190,7 +190,7 @@ icon_figure_walk:
   custom_fields:
     icon: >
       [[[
-        if (variables.state === 'motion_sensor') {
+        if (variables.state === 'motion_sensor' || variables.state === 'on') {
           return `
             <svg viewBox="0 0 35 28" >
               <style>

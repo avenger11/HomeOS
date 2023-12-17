@@ -72,6 +72,10 @@ homeos_configuration:
   person_bus:   &config_person_bus    'person.lynn'
   bus_route:    &config_bus_route     'sensor.491_express_est'
   person_car:   &config_person_car    'person.seb'
+  travel_home:  &config_travel_home   'sensor.seb_iphone_travel_time'
+  travel_work:  &config_travel_work   'sensor.seb_to_work'
+
+
 
 
 # ==============================================================================
@@ -283,9 +287,6 @@ views:
               layer_2: >
                 [[[ return entity.state ]]]                
 
-
-
-
 # +---+------------------------------------------------------------------------+
 # | 3 | Definition of the second custom grid layout                            |
 # +---+------------------------------------------------------------------------+
@@ -308,11 +309,11 @@ views:
             margin: 0
             padding: var(--homeos-card-grid-gap)
             grid-template-areas: |
-              "weather  weather  map map map map . person_bus"
-              "weather  weather  map map map map box box"
+              "weather  weather  map map map map person_car person_bus"
+              "weather  weather  map map map map garbage washer"
               "weather  weather  map map map map 3 ."
               "calendar calendar map map map map 4 ."
-              "calendar calendar garbage washer scene . 5 ."
+              "calendar calendar box box scene . 5 ."
 
           cards:
 # +----------------------------------------------------------------------------+
@@ -454,11 +455,35 @@ views:
                   margin: 0px !important;
                 }
               card: !include homeos_module/washer_dryer/washer_dryer_card.yaml     
-          
+
+# +----------------------------------------------------------------------------+
+# | Person in car Area Definition                                              |
+# +----------------------------------------------------------------------------+
+            - type: custom:mod-card
+              view_layout:
+                grid-area: person_car
+              style: |
+                ha-card {
+                  display: contents;   
+                }
+                :host {
+                  margin: 0px !important;
+                }             
+              card:
+                  type: custom:button-card
+                  entity: *config_person_car
+                  variables:
+                    var_travel_home: *config_travel_home
+                    var_travel_work: *config_travel_work
+                  triggers_update: *config_travel_home
+                  template:
+                    - template_person_car
+                    - icon_car_fill
+                    - icon_direction_house_work
+
 # +----------------------------------------------------------------------------+
 # | Person in Bus Area Definition                                              |
 # +----------------------------------------------------------------------------+
-
             - type: custom:mod-card
               view_layout:
                 grid-area: person_bus
@@ -501,3 +526,5 @@ views:
                       - sensor.seventeentrack_packages_delivered
                       - sensor.seventeentrack_packages_ready_to_be_picked_up
                       - sensor.seventeentrack_packages_in_transit
+
+

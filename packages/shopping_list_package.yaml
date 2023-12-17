@@ -1,0 +1,32 @@
+
+# +----------------------------------------------------------------------------+
+# | This create a text buffer for analyse by IOS shortcut                      |
+# | URL: https://simplyexplained.com/blog/integrate-home-assistant-with-apple-reminders/
+# +----------------------------------------------------------------------------+
+input_text:
+  shopping_list:
+    name: Pending Item
+    initial: ""
+    max: 255
+
+# +----------------------------------------------------------------------------+
+# | This is a script to add item to the input text                             |
+# +----------------------------------------------------------------------------+
+script:
+  add_shopping_list:
+    alias: Create a new item in the shopping list buffer
+    sequence:
+      - if:
+          condition: template
+          value_template: "{{item is not defined}}"
+        then:
+          - stop: "No \"item\" variable defined."
+            error: true
+      - service: input_text.set_value
+        entity_id: input_text.shopping_list
+        data:
+          value: >-
+            {%- if states('input_text.shopping_list') |length != 0 -%}
+            {{states('input_text.shopping_list')}}\n
+            {%- endif -%}
+            {{ item }}
