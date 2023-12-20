@@ -113,3 +113,12 @@
   template:
     - icon_lightbulb_2_fill
     - template_map_light
+
+- type: custom:button-card
+  entity: light.clarabedroom
+  style: 
+    left: 20vw
+    top: 34vw
+  template:
+    - icon_lamp_ceiling_fill
+    - template_map_light

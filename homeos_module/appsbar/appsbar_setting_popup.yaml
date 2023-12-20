@@ -49,3 +49,5 @@ browser_mod:
               name: Lumière du Sapin de Noël
             - entity: input_boolean.automation_living_room_light
               name: Lumière Salon
+            - entity: input_boolean.automation_dinning_room_light
+              name: Lumière Salle à manger

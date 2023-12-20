@@ -13,9 +13,9 @@ background: left top / contain no-repeat fixed url('/local/homeos/background/blu
 # +----------------------------------------------------------------------------+
 # | General card Custom variable                                               |
 # +----------------------------------------------------------------------------+
-homeos-card-background: rgba(255,255,255,0.8)  # rgba(0, 0, 0, 0.8)
+homeos-card-background: rgba(255,255,255,0.7)  # rgba(0, 0, 0, 0.8)
 homeos-card-background-revert: rgba(0,0,0,0.30)
-homeos-card-backdrop-filter: blur(150px) saturate(140%) brightness(1.5)
+homeos-card-backdrop-filter: blur(150px) saturate(140%) 
 homeos-card-border-color: rgba(255,255,255,0.5)
 
 # +----------------------------------------------------------------------------+

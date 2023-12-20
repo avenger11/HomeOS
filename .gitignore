@@ -9,14 +9,21 @@ deps/
 nest/
 tts/
 www/community/*
+www/icloud3/
 !www/community/homeos/
 image/
+
+
 
 secrets.yaml
 scripts.yaml
 scenes.yaml
 group.yaml
 mqtt.yaml
+homekit.yaml
+customize.yaml
+automations.yaml
 
 *.log*
 *.db*
+*.json

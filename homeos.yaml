@@ -38,8 +38,6 @@ homeos_configuration:
   apps1:      &config_apps1         'group.docker_update'
   apps1_icon: &config_apps1_icon    '/local/homeos/appsbar_media/icon_docker.jpg'
 
-
-
 # Scene Configuration
 # +---+---+
 # | 1 | 2 |
