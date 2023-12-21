@@ -6,6 +6,8 @@
 
 This is my dashboard for Home Assistant currently in complete recode from scratch.
 
+### Documentation in Progress : [HomeOS Documentation](https://avenger11.github.io/HomeOS-doc/)
+
 # My Setup and Hardware
 
 I recently change my approach to use containers instead of Home Assistant VM for the following reason:
