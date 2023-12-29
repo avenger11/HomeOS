@@ -262,25 +262,41 @@ views:
                     grid_area: notification
                   entity: sensor.temperature_min_max
                   template:
-                    - template_topbar_temperature
+                    - template_topbar
                     - icon_topbar_thermometer
-
+                    
                 - type: custom:button-card
                   view_layout:
                     grid_area: notification
                   entity: sensor.humidity_min_max
                   template:
-                    - template_topbar_temperature
+                    - template_topbar
                     - icon_topbar_humidity
-      
+
+                - type: custom:button-card
+                  view_layout:
+                    grid_area: notification
+                  entity: sensor.lights_on_count
+                  template:
+                    - template_topbar
+                    - icon_topbar_lightbulb  
+
+                - type: custom:button-card
+                  view_layout:
+                    grid_area: notification
+                  entity: sensor.security_status
+                  template:
+                    - template_topbar
+                    - icon_topbar_security  
+
                 - type: custom:button-card
                   view_layout:
                     grid_area: notification
                   entity: sensor.battery_min_max
                   template:
-                    - template_topbar_temperature
+                    - template_topbar
                     - icon_topbar_battery  
-                    
+
           
 # +-----+----------------------------------------------------------------------+
 # | 2.2 | Definition time area                                                 |

@@ -10,6 +10,42 @@
 # | This package contain all entities and value template related to the        |
 # | all topbar card.                                                           |
 # +----------------------------------------------------------------------------+
+
+# +----------------------------------------------------------------------------+
+# | Lights Group                                                               |
+# +----------------------------------------------------------------------------+
+# | Integration instruction:                                                   |
+# | 1. Change the entities you want to count ON/OFF                            |
+# +----------------------------------------------------------------------------+
+group:
+  all_light:
+    name: All light (switch and Light)
+    entities:
+      # Homekit integration 
+      - light.ambientlightbedroomclara_lightbulb
+      - light.leviton_dimmer_164a98
+      - switch.smartplug_clara
+      - switch.switch_exterieurback_switch
+      - switch.switch_vestibule_switch
+      # Govee Integration
+      - light.dreamview_t1
+      # MQTT Integration
+      - light.dimmer_diningroom_shelly_dimmer_2
+      - light.lamp_livingroomentry
+      - light.light_bedclarabedroom
+      - light.lightstairs_zigbeegroup
+      - switch.switch_basement
+      # TP-Link Kasa Integration
+      - light.droite
+      - light.lampe_gauche
+      - light.clarabedroom
+      - switch.prise_exterieur
+      - switch.switch_exteriorfront
+      # Wiz Integration
+      - light.wiz_rgbw_tunable_6261a4
+      # WLED Integration
+      - light.wled
+
 sensor:
 # +----------------------------------------------------------------------------+
 # | Temperature                                                                |
@@ -76,6 +112,35 @@ sensor:
       humidity_min_max:
         friendly_name: Humidité
         value_template: "{{ states('sensor.humidity_min') | round(0) }} - {{ states('sensor.humidity_max') | round(0) }}%"
+
+# +----------------------------------------------------------------------------+
+# | Light                                                                      |
+# +----------------------------------------------------------------------------+
+# | Integration instruction:                                                   |
+# | 1. Nothing to change here                                                  |
+# +----------------------------------------------------------------------------+
+  - platform: template
+    sensors:
+      lights_on_count:
+        friendly_name: "Lumières"
+        value_template: "{{ expand('group.all_light') | selectattr('state','eq','on') | list | count }} lumières allumées"
+
+# +----------------------------------------------------------------------------+
+# | Security                                                                   |
+# +----------------------------------------------------------------------------+
+# | Integration instruction:                                                   |
+# | 1. Change the entity in the value template by your own alarm system        |
+# +----------------------------------------------------------------------------+
+  - platform: template
+    sensors:
+      security_status:
+        friendly_name: Sécurité
+        value_template: >
+          {% if is_state('alarm_control_panel.alarmo', 'disarmed') %}
+            Désactivé
+          {% else %}
+            Activé
+          {% endif %}
 
 # +----------------------------------------------------------------------------+
 # | Battery                                                                    |
@@ -145,4 +210,6 @@ sensor:
       battery_min_max:
         friendly_name: Batteries
         value_template: "{{ states('sensor.battery_min') | round(0) }} - {{ states('sensor.battery_max') | round(0) }}%"
+
+
 

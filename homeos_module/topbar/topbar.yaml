@@ -17,16 +17,16 @@ template_topbar_time:
   tap_action: none
 
 
-template_topbar_temperature:
+template_topbar:
   show_state: true
   show_icon: false
   show_name: true
   styles:
     grid:
       - grid-template-areas: |
-          "n n" 
+          "icon n" 
           "icon s"
-      - grid-template-columns: 1.5vw min-content
+      - grid-template-columns: 2vw min-content
       - grid-template-rows: 1.5vw 1.5vw
     card:
       - background: rgba(0,0,0,0)
@@ -37,14 +37,16 @@ template_topbar_temperature:
       - margin: 0 0.5vw 0 0.5vw
     state:
       - color: var(--homeos-card-text-color-primary)
-      - font-size: 1.1vw
+      - font-size: 1vw
       - justify-self: start
-      - margin-left: 0.2vw
       - opacity: 0.8
     name:
       - color: var(--homeos-card-text-color-primary)
-      - font-size: 1.2vw
+      - font-size: 1vw
+      - font-weight: 500
       - justify-self: start
-    icon: 
-      - width: 100%
+    custom_fields:
+      icon:
+        - justify-content: center
+        - max-width: 1.6vw
 
