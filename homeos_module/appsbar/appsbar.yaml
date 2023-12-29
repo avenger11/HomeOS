@@ -103,4 +103,3 @@ template_apps_separator:
       - border-radius: 0
       - border-width: 0
       - background-color: var(--homeos-card-background-revert)
-      #- margin: 12px 0px 0px 0px 

@@ -83,7 +83,6 @@ recorder:
       - number.*
       - input_select.*
       - select.*
-      - sensor.montreal_*
       - sensor.openweathermap_*
     entities:
       - sun.sun

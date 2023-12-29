@@ -11,12 +11,13 @@
 
 type: picture-elements
 image: /local/homeos/weather_media/empty.png
-style: |
-  ha-card {
-    border-radius: var(--homeos-card-border-radius) !important;
-    box-shadow: var(--homeos-card-box-shadow);
-    border-style: none;
-  }
+card_mod:
+  style: |
+    ha-card {
+      border-radius: var(--homeos-card-border-radius) !important;
+      box-shadow: var(--homeos-card-box-shadow);
+      border-style: none;
+    }
 
 elements:
   - type: image

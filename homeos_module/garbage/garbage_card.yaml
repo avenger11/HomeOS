@@ -22,6 +22,8 @@ template_garbage:
       - border-style: var(--homeos-card-border-style)
       - border-color: var(--homeos-card-border-color)
       - border-width: 1px
+      - background: var(--homeos-card-background)
+      - backdrop-filter: var(--homeos-card-backdrop-filter)
     grid:
       - grid-template-areas: '"icon n" "icon l"'
       - grid-template-columns: 3.5vw 1fr
@@ -53,13 +55,6 @@ template_garbage:
         card:
           - background: rgba(255, 255, 255, 1)
           #- animation: blink 3s ease infinite
-
-  style: |
-    ha-card {
-      background: var(--homeos-card-background);
-      backdrop-filter: var(--homeos-card-backdrop-filter) !important;
-      box-shadow: none; 
-    }   
   tap_action:
     action: none
 

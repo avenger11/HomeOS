@@ -1,0 +1,148 @@
+# +----------------------------------------------------------------------------+
+# | HOME ASSISTANT PACKAGE                                                     |
+# +----------------------------------------------------------------------------+
+# | Package name: topbar.yaml                                                  |
+# +----------------------------------------------------------------------------+
+# | Author: Sebastien Logeais                                                  |
+# | Date: 28 December 2023                                                     |
+# +----------------------------------------------------------------------------+
+# | Description:                                                               |
+# | This package contain all entities and value template related to the        |
+# | all topbar card.                                                           |
+# +----------------------------------------------------------------------------+
+sensor:
+# +----------------------------------------------------------------------------+
+# | Temperature                                                                |
+# +----------------------------------------------------------------------------+
+# | Integration instruction:                                                   |
+# | 1. Add after entity_ids which entities should be use to determine the min  |
+# |    and the max temperature                                                 |
+# +----------------------------------------------------------------------------+
+  - platform: min_max
+    name: temperature_min
+    type: min
+    entity_ids:
+      - sensor.temperaturesensor_basement_temperature
+      - sensor.temperaturesensor_clarabedroom_temperature
+      - sensor.temperaturesensor_masterbedroom_temperature
+      - sensor.temperaturesensor_office_temperature
+      - sensor.temperaturesensor_upperbathroom_temperature
+
+  - platform: min_max
+    name: temperature_max
+    type: max
+    entity_ids:
+      - sensor.temperaturesensor_basement_temperature
+      - sensor.temperaturesensor_clarabedroom_temperature
+      - sensor.temperaturesensor_masterbedroom_temperature
+      - sensor.temperaturesensor_office_temperature
+      - sensor.temperaturesensor_upperbathroom_temperature
+
+  - platform: template
+    sensors:
+      temperature_min_max:
+        friendly_name: Température
+        value_template: "{{ states('sensor.temperature_min') | round(1) }} - {{ states('sensor.temperature_max') | round(1) }}°"
+
+# +----------------------------------------------------------------------------+
+# | Humidity                                                                   |
+# +----------------------------------------------------------------------------+
+# | Integration instruction:                                                   |
+# | 1. Add after entity_ids which entities should be use to determine the min  |
+# |    and the max humidity                                                    |
+# +----------------------------------------------------------------------------+
+  - platform: min_max
+    name: humidity_min
+    type: min
+    entity_ids:
+      - sensor.temperaturesensor_basement_humidity
+      - sensor.temperaturesensor_clarabedroom_humidity
+      - sensor.temperaturesensor_masterbedroom_humidity
+      - sensor.temperaturesensor_office_humidity
+      - sensor.temperaturesensor_upperbathroom_humidity
+
+  - platform: min_max
+    name: humidity_max
+    type: max
+    entity_ids:
+      - sensor.temperaturesensor_basement_humidity
+      - sensor.temperaturesensor_clarabedroom_humidity
+      - sensor.temperaturesensor_masterbedroom_humidity
+      - sensor.temperaturesensor_office_humidity
+      - sensor.temperaturesensor_upperbathroom_humidity
+
+  - platform: template
+    sensors:
+      humidity_min_max:
+        friendly_name: Humidité
+        value_template: "{{ states('sensor.humidity_min') | round(0) }} - {{ states('sensor.humidity_max') | round(0) }}%"
+
+# +----------------------------------------------------------------------------+
+# | Battery                                                                    |
+# +----------------------------------------------------------------------------+
+# | Integration instruction:                                                   |
+# | 1. Add after entity_ids which entities should be use to determine the min  |
+# |    and the max of the batteries pourcentage                                |
+# +----------------------------------------------------------------------------+
+  - platform: min_max
+    name: battery_min
+    type: min
+    entity_ids:
+      - sensor.contactsensor_doorbasement_battery
+      - sensor.contactsensor_dryer_battery
+      - sensor.contactsensor_laundrycloset_battery
+      - sensor.contactsensor_washingmachine_battery
+      - sensor.cover_clarabedroom_battery
+      - sensor.motionsensor_bottomstairs_battery
+      - sensor.motionsensor_kitchen_battery
+      - sensor.motionsensor_upperstairs_battery
+      - sensor.motionsensor_vestibule_battery
+      - sensor.remote1_clarabedroom_battery
+      - sensor.remote_basement_battery
+      - sensor.smokesensor_1stfloor_battery
+      - sensor.smokesensor_basement1_battery
+      - sensor.smokesensor_groundfloor_battery
+      - sensor.temperaturesensor_basement_battery
+      - sensor.temperaturesensor_clarabedroom_battery
+      - sensor.temperaturesensor_masterbedroom_battery
+      - sensor.temperaturesensor_office_battery
+      - sensor.temperaturesensor_upperbathroom_battery
+      - sensor.vibrationsensor_dryer_battery
+      - sensor.watersensor_dishwasher_battery
+      - sensor.watersensor_heater_battery
+      - sensor.watersensor_washingmachine_battery
+
+  - platform: min_max
+    name: battery_max
+    type: max
+    entity_ids:
+      - sensor.contactsensor_doorbasement_battery
+      - sensor.contactsensor_dryer_battery
+      - sensor.contactsensor_laundrycloset_battery
+      - sensor.contactsensor_washingmachine_battery
+      - sensor.cover_clarabedroom_battery
+      - sensor.motionsensor_bottomstairs_battery
+      - sensor.motionsensor_kitchen_battery
+      - sensor.motionsensor_upperstairs_battery
+      - sensor.motionsensor_vestibule_battery
+      - sensor.remote1_clarabedroom_battery
+      - sensor.remote_basement_battery
+      - sensor.smokesensor_1stfloor_battery
+      - sensor.smokesensor_basement1_battery
+      - sensor.smokesensor_groundfloor_battery
+      - sensor.temperaturesensor_basement_battery
+      - sensor.temperaturesensor_clarabedroom_battery
+      - sensor.temperaturesensor_masterbedroom_battery
+      - sensor.temperaturesensor_office_battery
+      - sensor.temperaturesensor_upperbathroom_battery
+      - sensor.vibrationsensor_dryer_battery
+      - sensor.watersensor_dishwasher_battery
+      - sensor.watersensor_heater_battery
+      - sensor.watersensor_washingmachine_battery
+
+  - platform: template
+    sensors:
+      battery_min_max:
+        friendly_name: Batteries
+        value_template: "{{ states('sensor.battery_min') | round(0) }} - {{ states('sensor.battery_max') | round(0) }}%"
+

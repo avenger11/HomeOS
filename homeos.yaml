@@ -111,7 +111,21 @@ views:
         "apps cards"
     cards:
 
-
+#...............................................................................
+#.....AAAAA.....PPPPPPPPP...PPPPPPPPP...BBBBBBBBBB......AAAAA.....RRRRRRRRRR....
+#.....AAAAA.....PPPPPPPPPP..PPPPPPPPPP..BBBBBBBBBBB.....AAAAA.....RRRRRRRRRRR...
+#....AAAAAA.....PPPPPPPPPPP.PPPPPPPPPPP.BBBBBBBBBBB....AAAAAA.....RRRRRRRRRRR...
+#....AAAAAAA....PPPP...PPPP.PPPP...PPPP.BBBB...BBBB....AAAAAAA....RRRR...RRRRR..
+#...AAAAAAAA....PPPP...PPPP.PPPP...PPPP.BBBB...BBBB...AAAAAAAA....RRRR...RRRRR..
+#...AAAAAAAA....PPPPPPPPPPP.PPPPPPPPPPP.BBBBBBBBBBB...AAAAAAAA....RRRRRRRRRRR...
+#...AAAA.AAAA...PPPPPPPPPP..PPPPPPPPPP..BBBBBBBBBB....AAAA.AAAA...RRRRRRRRRRR...
+#..AAAAAAAAAA...PPPPPPPPP...PPPPPPPPP...BBBBBBBBBBB..AAAAAAAAAA...RRRRRRRR......
+#..AAAAAAAAAAA..PPPP........PPPP........BBBB....BBBB.AAAAAAAAAAA..RRRR.RRRR.....
+#..AAAAAAAAAAA..PPPP........PPPP........BBBB....BBBB.AAAAAAAAAAA..RRRR..RRRR....
+#.AAAA....AAAA..PPPP........PPPP........BBBBBBBBBBBBBAAA....AAAA..RRRR..RRRRR...
+#.AAAA.....AAAA.PPPP........PPPP........BBBBBBBBBBB.BAAA.....AAAA.RRRR...RRRRR..
+#.AAAA.....AAAA.PPPP........PPPP........BBBBBBBBBB.BBAAA.....AAAA.RRRR....RRRR..
+#...............................................................................
 # +---+------------------------------------------------------------------------+
 # | 1 | Definition of the Apps Bar                                             |
 # +---+------------------------------------------------------------------------+
@@ -119,20 +133,21 @@ views:
         view_layout:
           grid-area: apps  
         image: /local/homeos/empty.png
-        style: |
-          ha-card {
-            border-radius: 0;
-            border-top-left-radius: var(--homeos-card-border-radius);
-            border-bottom-left-radius: var(--homeos-card-border-radius);
-            --ha-card-background: var(--homeos-card-background);
-            backdrop-filter: var(--homeos-card-backdrop-filter);
-            --ha-card-border-color: rgba(0, 0, 0, 0);
-            --ha-card-border-width: 0px;
-          }
-          :host {
-            height: var(--homeos-screen-height);
-            margin: 0px !important;
-          }
+        card_mod:
+          style: |
+            ha-card {
+              border-radius: 0;
+              border-top-left-radius: var(--homeos-card-border-radius);
+              border-bottom-left-radius: var(--homeos-card-border-radius);
+              --ha-card-background: var(--homeos-card-background);
+              backdrop-filter: var(--homeos-card-backdrop-filter);
+              --ha-card-border-color: rgba(0, 0, 0, 0);
+              --ha-card-border-width: 0px;
+            }
+            :host {
+              height: var(--homeos-screen-height);
+              margin: 0px !important;
+            }
         elements:
 
 # +----------------------------------------------------------------------------+
@@ -199,6 +214,21 @@ views:
               action: navigate
               navigation_path: /config/integrations/dashboard
 
+#.............................................................................
+#.TTTTTTTTTTT..OOOOOOO....OPPPPPPPPP..PPBBBBBBBBB......AAAA.....ARRRRRRRRRR...
+#.TTTTTTTTTTT.OOOOOOOOOO..OPPPPPPPPPP.PPBBBBBBBBBB....AAAAAA....ARRRRRRRRRRR..
+#.TTTTTTTTTTTOOOOOOOOOOOO.OPPPPPPPPPPPPPBBBBBBBBBB....AAAAAA....ARRRRRRRRRRR..
+#....TTTT...TOOOO...OOOOO.OPPP....PPPPPPBB....BBBB....AAAAAAA...ARRR....RRRR..
+#....TTTT...TOOO.....OOOOOOPPP....PPPPPPBB....BBBB...AAAAAAAA...ARRR....RRRR..
+#....TTTT...TOOO......OOOOOPPPPPPPPPPPPPBBBBBBBBBB...AAAAAAAA...ARRRRRRRRRRR..
+#....TTTT...TOOO......OOOOOPPPPPPPPPP.PPBBBBBBBBB....AAAA.AAAA..ARRRRRRRRRR...
+#....TTTT...TOOO......OOOOOPPPPPPPPP..PPBBBBBBBBBB..BAAAAAAAAA..ARRRRRRRR.....
+#....TTTT...TOOO.....OOOOOOPPP........PPBB.....BBBB.BAAAAAAAAAA.ARRR.RRRRR....
+#....TTTT...TOOOOO..OOOOO.OPPP........PPBB.....BBBBBBAAAAAAAAAA.ARRR..RRRRR...
+#....TTTT....OOOOOOOOOOOO.OPPP........PPBBBBBBBBBBBBBAA....AAAA.ARRR...RRRRR..
+#....TTTT.....OOOOOOOOOO..OPPP........PPBBBBBBBBBB.BBAA....AAAAAARRR....RRRR..
+#....TTTT......OOOOOOO....OPPP........PPBBBBBBBBB.BBBAA.....AAAAARRR.....RRR..
+#.............................................................................
 # +---+------------------------------------------------------------------------+
 # | 2 | Definition of the top Bar                                              |
 # +---+------------------------------------------------------------------------+    
@@ -216,33 +246,45 @@ views:
           grid-template-areas: |
             "notification time"
         cards:
-          - type: custom:button-card
-            view_layout:
-              grid_area: notification
-            entity: sensor.time
-            show_state: true
-            show_icon: false
-            show_name: false
+# +-----+----------------------------------------------------------------------+
+# | 2.1 | Definition notification area                                         |
+# +-----+----------------------------------------------------------------------+ 
+          - type: custom:mod-card
             style: |
               :host {
-                margin: 0px !important;
+                margin: 0.2vw 0 0 0.5vw !important;
               }
-            styles:
-              card:
-                - background: rgba(0,0,0,0)
-                - padding: 0
-              state:
-                - color: white
-                - font-size: 2vw
-                - mix-blend-mode: overlay
-              custom_fields:
-                overlay_effect:
-                  - position: absolute
-                  - display: flex
-                  - font-size: 2vw
-                  - transform: translate(0,0)
-                  - justify-self: center
+            card:
+              type: horizontal-stack
+              cards:
+                - type: custom:button-card
+                  view_layout:
+                    grid_area: notification
+                  entity: sensor.temperature_min_max
+                  template:
+                    - template_topbar_temperature
+                    - icon_topbar_thermometer
 
+                - type: custom:button-card
+                  view_layout:
+                    grid_area: notification
+                  entity: sensor.humidity_min_max
+                  template:
+                    - template_topbar_temperature
+                    - icon_topbar_humidity
+      
+                - type: custom:button-card
+                  view_layout:
+                    grid_area: notification
+                  entity: sensor.battery_min_max
+                  template:
+                    - template_topbar_temperature
+                    - icon_topbar_battery  
+                    
+          
+# +-----+----------------------------------------------------------------------+
+# | 2.2 | Definition time area                                                 |
+# +-----+----------------------------------------------------------------------+ 
           - type: custom:button-card
             view_layout:
               grid_area: time
@@ -278,14 +320,29 @@ views:
                   - display: flex
                   - font-size: 3vw
                   - transform: translate(0,0)
-                  - color: rgba(240,240,240,0.8)
+                  - color: rgba(255,255,255,0.9)
                   - justify-self: center 
             custom_fields:
               layer_1: >
                 [[[ return entity.state ]]]
               layer_2: >
-                [[[ return entity.state ]]]                
+                [[[ return entity.state ]]]        
 
+#................................................
+#.....GGGGGGG....RRRRRRRRRR..IIIII.DDDDDDDDD.....
+#...GGGGGGGGGG...RRRRRRRRRRR.IIIII.DDDDDDDDDD....
+#..GGGGGGGGGGGG..RRRRRRRRRRR.IIIII.DDDDDDDDDDD...
+#..GGGGG..GGGGG..RRRR...RRRRRIIIII.DDDD...DDDD...
+#.GGGGG....GGG...RRRR...RRRRRIIIII.DDDD....DDDD..
+#.GGGG...........RRRRRRRRRRR.IIIII.DDDD....DDDD..
+#.GGGG..GGGGGGGG.RRRRRRRRRRR.IIIII.DDDD....DDDD..
+#.GGGG..GGGGGGGG.RRRRRRRR....IIIII.DDDD....DDDD..
+#.GGGGG.GGGGGGGG.RRRR.RRRR...IIIII.DDDD....DDDD..
+#..GGGGG....GGGG.RRRR..RRRR..IIIII.DDDD...DDDDD..
+#..GGGGGGGGGGGG..RRRR..RRRRR.IIIII.DDDDDDDDDDD...
+#...GGGGGGGGGG...RRRR...RRRRRIIIII.DDDDDDDDDD....
+#.....GGGGGGG....RRRR....RRRRIIIII.DDDDDDDDD.....
+#................................................
 # +---+------------------------------------------------------------------------+
 # | 3 | Definition of the second custom grid layout                            |
 # +---+------------------------------------------------------------------------+
@@ -315,7 +372,7 @@ views:
               "calendar calendar box box scene . 5 ."
 
           cards:
-# +----------------------------------------------------------------------------+
+# +----------------------------------------------------------------------------+wedc
 # | Weather Area Definition                                                    |
 # +----------------------------------------------------------------------------+
             - type: custom:mod-card 
