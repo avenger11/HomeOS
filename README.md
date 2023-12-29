@@ -11,8 +11,9 @@ This is my dashboard for Home Assistant currently in complete recode from scratc
 
 
 # As of 28 November 2023
-![image](https://github.com/avenger11/HomeOS/assets/37946892/e4499305-5b18-4817-9e3f-1c159e82ae7c)
-![image](https://github.com/avenger11/HomeOS/assets/37946892/96b1b5c0-ae4e-4961-acb5-c9892fc9713f)
+![192 168 0 22_8123_lovelace-homeos_0(FireHD 10)](https://github.com/avenger11/HomeOS/assets/37946892/be0c7b57-ffde-4b05-9e02-77aad15b588b)
+![192 168 0 22_8123_lovelace-homeos_0(FireHD 10) (1)](https://github.com/avenger11/HomeOS/assets/37946892/a6caf785-7367-4305-bd62-8afe3e1b8b0b)
+
 
 
 # As of 10 November 2023
