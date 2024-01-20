@@ -25,6 +25,7 @@ mqtt.yaml
 homekit.yaml
 customize.yaml
 automations.yaml
+plant.yaml
 
 *.log*
 *.db*

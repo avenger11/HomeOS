@@ -211,5 +211,3 @@ sensor:
         friendly_name: Batteries
         value_template: "{{ states('sensor.battery_min') | round(0) }} - {{ states('sensor.battery_max') | round(0) }}%"
 
-
-

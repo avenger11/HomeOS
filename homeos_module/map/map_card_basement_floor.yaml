@@ -143,6 +143,16 @@
         - icon_lightbulb_2_fill
         - template_map_light
 
+    - type: custom:button-card
+      entity: light.dimmer_bathroombasement
+      style: 
+        left: 16vw
+        top: 33vw
+      template:
+        - icon_light_recessed
+        - template_map_light
+
+
 # +---+------------------------------------------------------------------------+
 # | 3 | temperature configuration                                              |
 # +---+------------------------------------------------------------------------+

@@ -8,28 +8,28 @@
 # +----------------------------------------------------------------------------+
 # | Date: 29 october 2023                                                      |
 # +----------------------------------------------------------------------------+
-background: left top / contain no-repeat fixed url('/local/homeos/background/blue-day.jpg')
+background: left top / contain no-repeat fixed url('/local/homeos/background/day-variant-3.jpg')
 
 # +----------------------------------------------------------------------------+
 # | General card Custom variable                                               |
 # +----------------------------------------------------------------------------+
 homeos-card-background: rgba(255,255,255,0.7)  # rgba(0, 0, 0, 0.8)
-homeos-card-background-revert: rgba(0,0,0,0.30)
+homeos-card-background-revert: rgba(0,0,0,0.20)
 homeos-card-backdrop-filter: blur(150px) saturate(140%) 
 homeos-card-border-color: rgba(255,255,255,0.5)
 
 # +----------------------------------------------------------------------------+
 # | General text Custom variable                                               |
 # +----------------------------------------------------------------------------+
-homeos-card-text-color-primary: rgb(0,0,0)
-homeos-card-text-color-secondary: rgba(0,122,255,0.9)
+homeos-card-text-color-primary: rgb(0,0,0,0.7)
+homeos-card-text-color-secondary: rgba(0,122,255,0.8)
 homeos-card-text-color-tertiary: rgba(60,60,60,0.9)
 homeos-card-text-color-revert: rgba(255,255,255,1)
 
 # +----------------------------------------------------------------------------+
 # | General icon Custom variable                                               |
 # +----------------------------------------------------------------------------+
-homeos-icon-color-primary: rgba(10,10,10,0.9)
+homeos-icon-color-primary: rgba(10,10,10,0.7)
 homeos-icon-color-secondary: rgba(10,10,10,0.4)
 homeos-icon-color-primary-revert: rgba(255,255,255,0.8)
 homeos-icon-color-secondary-revert: rgba(255,255,255,0.5)

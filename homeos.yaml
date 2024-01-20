@@ -22,7 +22,6 @@
 # | Date: 21 October 2023                                                      |
 # +----------------------------------------------------------------------------+
 
-
 # ==============================================================================
 # |          ====> THIS IS THE SECTION TO CHANGE YOUR ENTITY  <=====           |
 # | Change only 'xxxx.xxxx '                                                   |
@@ -74,7 +73,8 @@ homeos_configuration:
   travel_work:  &config_travel_work   'sensor.seb_to_work'
 
 
-
+# Plant Card
+  hum_plant_1:  &config_hum_plant_1   'sensor.flower_care_hhccjcy01hhcc_moi_2'
 
 # ==============================================================================
 # | Do not change code after this box                                          |
@@ -252,7 +252,7 @@ views:
           - type: custom:mod-card
             style: |
               :host {
-                margin: 0.2vw 0 0 0.5vw !important;
+                margin: 0.4vw 0 0 0.5vw !important;
               }
             card:
               type: horizontal-stack
@@ -297,7 +297,7 @@ views:
                     - template_topbar
                     - icon_topbar_battery  
 
-          
+
 # +-----+----------------------------------------------------------------------+
 # | 2.2 | Definition time area                                                 |
 # +-----+----------------------------------------------------------------------+ 
@@ -383,11 +383,13 @@ views:
             grid-template-areas: |
               "weather  weather  map map map map person_car person_bus"
               "weather  weather  map map map map garbage washer"
-              "weather  weather  map map map map 3 ."
+              "weather  weather  map map map map plant ."
               "calendar calendar map map map map 4 ."
               "calendar calendar box box scene . 5 ."
 
           cards:
+
+
 # +----------------------------------------------------------------------------+wedc
 # | Weather Area Definition                                                    |
 # +----------------------------------------------------------------------------+
@@ -404,19 +406,24 @@ views:
                 }
               card: !include homeos_module/weather/weather_card.yaml  
     
+    
 # +----------------------------------------------------------------------------+
 # | Calendar Area Definition                                                   |
 # +----------------------------------------------------------------------------+
             - type: custom:mod-card
               view_layout:
                 grid-area: calendar
-              style: |
-                ha-card {
-                  display: contents;   
-                }
-                :host {
-                  margin: 0px !important;
-                }
+              card_mod: 
+                style: |
+                  ha-card {
+                    display: contents;   
+                  }
+                  :host {
+                    margin: 0px !important;
+                  }
+                  button-card {
+                    height: 100% !important;
+                  }
               card: !include homeos_module/calendar/calendar_card.yaml
 
 # +----------------------------------------------------------------------------+
@@ -600,3 +607,28 @@ views:
                       - sensor.seventeentrack_packages_in_transit
 
 
+# +----------------------------------------------------------------------------+
+# | Plant Area Definition                                                      |
+# +----------------------------------------------------------------------------+
+
+            # - type: custom:mod-card
+            #   view_layout:
+            #     grid-area: plant
+            #   style: |
+            #     ha-card {
+            #       display: contents;   
+            #     }
+            #     :host {
+            #       margin: 0px !important;
+            #     }             
+            #   card:
+            #     type: custom:swipe-card
+            #     parameters:
+            #       effect: cards
+            #       spaceBetween: 8
+            #       pagination:
+            #         type: "bullets"
+            #         clickable: true
+            #     cards:
+            #       - type: custom:button-card
+            #         entity: *config_hum_plant_1

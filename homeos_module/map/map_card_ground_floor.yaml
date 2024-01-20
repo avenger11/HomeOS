@@ -160,14 +160,14 @@
         - icon_light_recessed
         - template_map_light
 
-    - type: custom:button-card
-      entity: light.dimmer_diningroom_shelly_dimmer_2
-      style: 
-        left: 15vw
-        top: 32vw
-      template:
-        - icon_chandelier_fill_2
-        - template_map_light
+    # - type: custom:button-card
+    #   entity: light.dimmer_diningroom_shelly_dimmer_2
+    #   style: 
+    #     left: 15vw
+    #     top: 32vw
+    #   template:
+    #     - icon_chandelier_fill_2
+    #     - template_map_light
       
 # +---+------------------------------------------------------------------------+
 # | 3 | temperature configuration                                              |

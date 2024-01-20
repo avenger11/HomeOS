@@ -37,6 +37,7 @@ styles:
         "agenda"
     - grid-template-rows: min-content min-content 1fr
     - grid-template-columns: 100%
+    - align-items: start
   card:
     - background-color: var(--homeos-card-background)
     - backdrop-filter: var(--homeos-card-backdrop-filter)
@@ -57,6 +58,7 @@ styles:
     - font-weight: 400
     - place-self: self-start
     - margin-top: -0.5vw
+  custom_fields:
 
 custom_fields:
   agenda:

@@ -16,7 +16,6 @@ template_topbar_time:
   hold_action: none
   tap_action: none
 
-
 template_topbar:
   show_state: true
   show_icon: false
@@ -29,12 +28,15 @@ template_topbar:
       - grid-template-columns: 2vw min-content
       - grid-template-rows: 1.5vw 1.5vw
     card:
-      - background: rgba(0,0,0,0)
-      - padding: 0
-      - border-radius: 0
-      - border-color: rgba(0,0,0,0)
+      - padding: 0vw 1vw 0vw 0.8vw
       - width: min-content
-      - margin: 0 0.5vw 0 0.5vw
+      - border-radius: var(--homeos-card-border-radius)
+      - box-shadow: var(--homeos-card-box-shadow)
+      #- border-style: var(--homeos-card-border-style)
+      #- border-color: var(--homeos-card-border-color)
+      - border-width: 0px
+      - background: var(--homeos-card-background)
+      - backdrop-filter: var(--homeos-card-backdrop-filter)
     state:
       - color: var(--homeos-card-text-color-primary)
       - font-size: 1vw
@@ -45,8 +47,8 @@ template_topbar:
       - font-size: 1vw
       - font-weight: 500
       - justify-self: start
+
     custom_fields:
       icon:
         - justify-content: center
         - max-width: 1.6vw
-
