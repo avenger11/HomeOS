@@ -1,0 +1,63 @@
+template_plant:
+  show_entity_picture: false
+  show_name: false
+  show_state: true
+  show_label: true
+  show_icon: false
+  styles:
+    card:
+      - border-radius: var(--homeos-card-border-radius)
+      - background: >
+          [[[
+            return 'left top / contain no-repeat fixed  url(' + states[variables.var_custom_name].attributes["entity_picture"] + ')'
+          ]]]
+      - border-style: none
+      - height: var(--homeos-card-grid-square)
+      - width: var(--homeos-card-grid-square)
+    grid: 
+      - grid-template-areas: | 
+          ". icon custom_name custom_name" 
+          ". s s d"
+          ". l l ."
+      - grid-template-columns: 1vw 1vw 6vw 1fr
+      - grid-template-rows: 2vw 3.5vw 3.8vw
+    state:
+      - justify-self: left
+      - font-size: 2.1vw 
+      - font-weight: 400
+    label:
+      - font-size: 1vw
+      - white-space: normal
+      - text-align: left
+      - align-self: end
+
+    custom_fields:
+      icon:
+        - opacity: 0.6
+      custom_name:
+        - font-size: 1vw
+        - justify-self: left
+        - opacity: 0.6
+        - padding-left: 0.3vw
+
+  label: >
+    [[[
+      if (entity.state <= states[variables.min_hum].state ) {
+      return 'Arroser maintenant' ;
+      }
+      return 'Arroser dans quelques jours';
+    ]]]
+
+  custom_fields:
+    custom_name: >
+      [[[ return states[variables.var_custom_name].attributes["friendly_name"] ]]]
+
+    icon: >
+      <svg viewBox="0 0 28 28" >
+        <style>
+          .primary {
+            fill: var(--homeos-icon-color-primary);
+          }
+        </style>
+        <path class="primary" d="M1.33984 4.41797C1.09375 5.61328 1 7.17188 1 8.21484C1 16.9805 6.21484 22.7695 14.1836 22.7695C19.3164 22.7695 21.7305 19.7461 22.2578 18.7734L20.793 18.7383C22.3164 20.332 22.9961 22.043 23.7695 24.4688C23.9453 25.0312 24.332 25.2305 24.7422 25.2305C25.6094 25.2305 26.3008 24.4805 26.3008 23.4492C26.3008 21.832 23.9805 19.0195 22.7734 17.8828C17.6406 13.1484 9.82422 15.9492 7.80859 10.7227C7.65625 10.3242 8.07812 9.97266 8.46484 10.3711C12.5078 14.4141 17.7109 11.0039 22.7734 15.668C23.1719 16.0195 23.6406 15.832 23.7109 15.4102C23.7695 15.0703 23.8047 14.5312 23.8047 14.0156C23.8047 8.29688 19.8203 5.54297 14.2188 5.54297C12.3438 5.54297 10.1523 6 8.42969 6C6.54297 6 4.42188 5.84766 2.73438 4.04297C2.25391 3.55078 1.52734 3.6211 1.33984 4.41797Z" fill="black"/>
+      </svg>

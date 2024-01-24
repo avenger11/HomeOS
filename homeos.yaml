@@ -59,7 +59,6 @@ homeos_configuration:
   scene4:       &config_scene4        'input_boolean.homeos_scene_morning_coffee'
   scene4_icon:  &config_scene4_icon   'icon_empty'
 
-
 # Garbage Card Configuration
   garbage:      &config_garbage       'schedule.garbage'
   recyling:     &config_recycling     'schedule.recycle'
@@ -73,8 +72,15 @@ homeos_configuration:
   travel_work:  &config_travel_work   'sensor.seb_to_work'
 
 
-# Plant Card
-  hum_plant_1:  &config_hum_plant_1   'sensor.flower_care_hhccjcy01hhcc_moi_2'
+# Plant Card 1
+  plant_1:      &config_plant_1       'plant.pin_de_norfolks'
+  hum_plant_1:  &config_hum_plant_1   'sensor.pin_de_norfolks_soil_moisture'
+  min_plant_1:  &config_min_plant_1   'number.pin_de_norfolks_min_soil_moisture'
+  
+# Plant Card 2
+  plant_2:      &config_plant_2       'plant.anthurium_2'
+  hum_plant_2:  &config_hum_plant_2   'sensor.anthurium_soil_moisture_2'
+  min_plant_2:  &config_min_plant_2   'number.anthurium_min_soil_moisture_2'
 
 # ==============================================================================
 # | Do not change code after this box                                          |
@@ -383,7 +389,7 @@ views:
             grid-template-areas: |
               "weather  weather  map map map map person_car person_bus"
               "weather  weather  map map map map garbage washer"
-              "weather  weather  map map map map plant ."
+              "weather  weather  map map map map . plant"
               "calendar calendar map map map map 4 ."
               "calendar calendar box box scene . 5 ."
 
@@ -606,29 +612,69 @@ views:
                       - sensor.seventeentrack_packages_ready_to_be_picked_up
                       - sensor.seventeentrack_packages_in_transit
 
-
 # +----------------------------------------------------------------------------+
 # | Plant Area Definition                                                      |
 # +----------------------------------------------------------------------------+
+            - type: custom:mod-card
+              view_layout:
+                grid-area: plant
+              style: 
+                .: >
+                  :host {
+                    margin: 0px !important;
+                  }   
+                swipe-card:
+                  $: |
+                    .swiper-container {
+                      box-shadow: var(--homeos-card-box-shadow);
+                      border-radius: var(--homeos-card-border-radius);
+                      background-color: var(--homeos-card-background);
+                      backdrop-filter: var(--homeos-card-backdrop-filter);
+                      border-style: var(--homeos-card-border-style);
+                      border-color: var(--homeos-card-border-color);
+                      border-width: var(--homeos-card-border-width);
+                    }
+                    .swiper-pagination {
+                      bottom: 0vw !important;
+                    }   
+                    .swiper-pagination-bullet-active {
+                      --swiper-pagination-color: var(--homeos-icon-color-primary) !important;
+                      opacity: 0.6 !important;  
+                      width: 0.5vw;
+                      height: 0.5vw;  
+                    }
+                    .swiper-pagination-bullets>span {
+                      width: 0.5vw;
+                      height: 0.5vw;
+                      background: var(--homeos-icon-color-primary);
+                    }         
+              card:
+                type: custom:swipe-card
+                start_card: 1
+                reset_after: 10
+                parameters:
+                  effect: cards
+                  spaceBetween: 10
+                  pagination:
+                    type: "bullets"
+                    clickable: true
+                cards:
+            
+                  - type: custom:button-card
+                    entity: *config_hum_plant_1
+                    variables:     
+                      var_custom_name: *config_plant_1
+                      min_hum: *config_min_plant_1
+                    template:
+                      - template_plant
 
-            # - type: custom:mod-card
-            #   view_layout:
-            #     grid-area: plant
-            #   style: |
-            #     ha-card {
-            #       display: contents;   
-            #     }
-            #     :host {
-            #       margin: 0px !important;
-            #     }             
-            #   card:
-            #     type: custom:swipe-card
-            #     parameters:
-            #       effect: cards
-            #       spaceBetween: 8
-            #       pagination:
-            #         type: "bullets"
-            #         clickable: true
-            #     cards:
-            #       - type: custom:button-card
-            #         entity: *config_hum_plant_1
+                  - type: custom:button-card
+                    entity: *config_hum_plant_2
+                    variables:     
+                      var_custom_name: *config_plant_2
+                      min_hum: *config_min_plant_2
+                    template:
+                      - template_plant
+
+            
+    

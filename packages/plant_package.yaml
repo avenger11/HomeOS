@@ -1,0 +1,23 @@
+plant:
+  MiFlora_Pin:
+    name: Pin de Norfolks
+    sensors:
+      moisture: sensor.flower_care_hhccjcy01hhcc_moi
+      temperature: sensor.flower_care_hhccjcy01hhcc_tempc
+      conductivity: sensor.flower_care_hhccjcy01hhcc_fer
+      brightness: sensor.flower_care_hhccjcy01hhcc_lux
+    min_moisture: 15
+    min_conductivity: 350
+    min_temperature: 5
+    
+
+  MiFlora_Anthurium:
+    name: Anthurium
+    sensors:
+      moisture: sensor.flower_care_hhccjcy01hhcc_moi_2
+      temperature: sensor.flower_care_hhccjcy01hhcc_tempc_2
+      conductivity: sensor.flower_care_hhccjcy01hhcc_fer_2
+      brightness: sensor.flower_care_hhccjcy01hhcc_lux_2
+    min_moisture: 15
+    min_conductivity: 350
+    min_temperature: 15

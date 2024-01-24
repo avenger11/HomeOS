@@ -79,6 +79,7 @@ custom_fields:
       showDatePerEvent: true    # Show the date next to each event entry
       hideFinishedEvents: true  # if set true will hide any finished events
       showAllDayHours: true     # Show “All Day” text under full day events
+      showHiddenText: false     # Show x hidden events when limited number of events selected
       europeanDate: true
       titleLength: 30
       fullDayEventText: 'toute la journée'

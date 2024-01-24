@@ -60,7 +60,7 @@ scene: !include scenes.yaml
 homekit: !include homekit.yaml
 group: !include group.yaml
 mqtt: !include mqtt.yaml
-plant: !include plant.yaml
+#plant: !include plant.yaml
 
 # +----------------------------------------------------------------------------+
 # |  This is for the container health check                                    |
