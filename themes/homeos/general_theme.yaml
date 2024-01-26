@@ -13,7 +13,7 @@ homeos:
 # | Layout variable                                                            |
 # +----------------------------------------------------------------------------+
   homeos-screen-height: 800px #FireHD height
-  homeos-topbar-height: 3.5vw
+  homeos-topbar-height: 3.5vw 
   homeos-appsbar-width: 6vw
   homeos-card-grid-gap: 0.6vw
   homeos-card-grid-square: calc( (var(--homeos-screen-height) - var(--homeos-topbar-height) - (6 * (var(--homeos-card-grid-gap))))/5 )
