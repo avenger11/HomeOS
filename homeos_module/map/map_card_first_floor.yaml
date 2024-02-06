@@ -1,3 +1,18 @@
+# +----------------------------------------------------------------------------+
+# | Table of contents                                                          |
+# +----------------------------------------------------------------------------+ 
+# | 1 - Map background configuration                                           |
+# | 2 - Layer switch configuration                                             |
+# | 3 - Light configuration                                                    |
+# | 4 - Temperature configuration                                              |
+# | 5 - Humidity configuration                                                 |
+# | 6 - Battery configuration                                                  |
+# | 7 - Motion Sensor configuration                                            |
+# +----------------------------------------------------------------------------+
+
+# +---+------------------------------------------------------------------------+
+# | 1 | Map background configuration                                           |
+# +---+------------------------------------------------------------------------+ 
 - type: image
   entity: input_select.homeos_theme_selection
   state_image:
@@ -12,6 +27,9 @@
   tap_action:
     action: none
 
+# +---+------------------------------------------------------------------------+
+# | 2 | Layer switch configuration                                             |
+# +---+------------------------------------------------------------------------+
 - type: custom:layout-card
   layout_type: custom:vertical-layout
   style: 
@@ -105,6 +123,9 @@
         - icon_figure_walk
         - house_map_switch_layer
 
+# +---+------------------------------------------------------------------------+
+# | 3 | Light configuration                                                    |
+# +---+------------------------------------------------------------------------+
 - type: custom:button-card
   entity: light.applique_salle_de_bain
   style: 
@@ -114,6 +135,7 @@
     - icon_lightbulb_2_fill
     - template_map_light
 
+
 - type: custom:button-card
   entity: light.clarabedroom
   style: 
@@ -122,3 +144,23 @@
   template:
     - icon_lamp_ceiling_fill
     - template_map_light
+
+- type: custom:button-card
+  entity: light.clarabedroom
+  style: 
+    left: 30vw
+    top: 34vw
+  variables:
+    position_left: 30vw
+    position_top: 34vw
+    area_id: chambre_clara
+    scene_entity_id_1: scene.forest
+    scene_entity_id_1_icon: icon_lamp_ceiling_fill
+    scene_entity_id_2: scene.forest
+    scene_entity_id_2_icon:
+    scene_entity_id_3: scene.forest
+    scene_entity_id_3_icon:
+  template: 
+    - template_map_sub_menu
+    - icon_lamp_ceiling_fill
+

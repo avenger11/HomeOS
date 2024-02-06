@@ -60,6 +60,7 @@ elements:
       31: /local/homeos/weather_media/mainly_sunny_day.png #Généralement dégagé / Mainly Clear
       32: /local/homeos/weather_media/partly_cloudy_day.png #Partiellement nuageux / Partly Cloudy
       33: /local/homeos/weather_media/mostly_cloudy_day.png #Généralement nuageux / Mostly Cloudy
+      38: /local/homeos/weather_media/light_flurries_day.png #Faible averse de neige / Light Flurries
       40: /local/homeos/weather_media/light_flurries_day.png #Poudrerie élevée / Blowing Snow
       41: /local/homeos/weather_media/cloudy_day.png #Nuage en entonnoir / Funnel Cloud
       42: /local/homeos/weather_media/thunderstorm_day.png #Tornade / Tornado

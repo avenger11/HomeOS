@@ -1,0 +1,105 @@
+icon_clock:
+  custom_fields:
+    icon: >
+      <svg viewBox="0 0 25.95 26.07">
+          <style>
+            .primary {
+              fill: var(--homeos-card-background-revert);
+            }            
+            .secondary {
+              fill: var(--homeos-card-text-color-revert);
+            }
+            .tertiary {
+              fill: var(--homeos-card-text-color-revert);
+              opacity: 0.6;
+            }
+          </style>
+        
+          <ellipse class="primary" cx="12.97" cy="13.03" rx="12.97" ry="13.03"/>
+
+          <rect class="secondary" x="12.84" y="1.03" width=".22" height="1.62" transform="translate(0 -.04) rotate(.16)"/>
+
+          <rect class="tertiary" x="14.06" y="1.13" width=".15" height="1.18" transform="translate(.26 -1.5) rotate(6.13)"/>
+          <rect class="tertiary" x="15.23" y="1.32" width=".15" height="1.18" transform="translate(.74 -3.18) rotate(12.13)"/>
+          <rect class="tertiary" x="16.39" y="1.62" width=".15" height="1.18" transform="translate(1.51 -5.01) rotate(18.13)"/>
+          <rect class="tertiary" x="17.5" y="2.05" width=".15" height="1.18" transform="translate(2.61 -6.95) rotate(24.13)"/>
+
+          <rect class="secondary" x="18.43" y="2.53" width=".22" height="1.62" transform="translate(4.19 -8.86) rotate(30.16)"/>
+
+          <rect class="tertiary" x="19.54" y="3.23" width=".15" height="1.18" transform="translate(6 -10.81) rotate(36.04)"/>
+          <rect class="tertiary" x="20.47" y="3.97" width=".15" height="1.18" transform="translate(8.34 -12.58) rotate(42.04)"/>
+          <rect class="tertiary" x="21.31" y="4.82" width=".15" height="1.18" transform="translate(11.1 -14.11) rotate(48.04)"/>
+          <rect class="tertiary" x="22.06" y="5.74" width=".15" height="1.18" transform="translate(14.26 -15.31) rotate(54.04)"/>
+
+          <rect class="secondary" x="22.53" y="6.63" width=".22" height="1.62" transform="translate(17.83 -15.9) rotate(60.16)"/>
+
+          <rect class="tertiary" x="23.26" y="7.8" width=".15" height="1.18" transform="translate(21.54 -16.34) rotate(66.06)"/>
+          <rect class="tertiary" x="23.69" y="8.91" width=".15" height="1.18" transform="translate(25.48 -16.04) rotate(72.06)"/>
+          <rect class="tertiary" x="24" y="10.06" width=".15" height="1.18" transform="translate(29.52 -15.11) rotate(78.06)"/>
+          <rect class="tertiary" x="24.19" y="11.24" width=".15" height="1.18" transform="translate(33.51 -13.53) rotate(84.06)"/>
+
+          <rect class="secondary" x="24.03" y="12.22" width=".22" height="1.62" transform="translate(37.24 -11.07) rotate(90.16)"/>
+
+          <rect class="tertiary" x="24.19" y="13.64" width=".15" height="1.18" transform="translate(41.02 -8.36) rotate(96.18)"/>
+          <rect class="tertiary" x="24" y="14.82" width=".15" height="1.18" transform="translate(44.22 -4.88) rotate(102.18)"/>
+          <rect class="tertiary" x="23.69" y="15.97" width=".15" height="1.18" transform="translate(46.91 -.86) rotate(108.18)"/>
+          <rect class="tertiary" x="23.27" y="17.08" width=".15" height="1.18" transform="translate(49.02 3.61) rotate(114.18)"/>
+
+          <rect class="secondary" x="22.53" y="17.82" width=".22" height="1.62" transform="translate(50.12 8.41) rotate(120.16)"/>
+
+          <rect class="tertiary" x="22.06" y="19.15" width=".15" height="1.18" transform="translate(51.15 13.57) rotate(126.28)"/>
+          <rect class="tertiary" x="21.31" y="20.08" width=".15" height="1.18" transform="translate(51.07 18.74) rotate(132.28)"/>
+          <rect class="tertiary" x="20.47" y="20.92" width=".15" height="1.18" transform="translate(50.19 23.88) rotate(138.28)"/>
+          <rect class="tertiary" x="19.54" y="21.66" width=".15" height="1.18" transform="translate(48.54 28.87) rotate(144.28)"/>
+
+          <rect class="secondary" x="18.43" y="21.91" width=".22" height="1.62" transform="translate(45.94 33.21) rotate(150.16)"/>
+
+          <rect class="tertiary" x="17.48" y="22.85" width=".15" height="1.18" transform="translate(43.07 37.81) rotate(156.25)"/>
+          <rect class="tertiary" x="16.37" y="23.27" width=".15" height="1.18" transform="translate(39.38 41.57) rotate(162.25)"/>
+          <rect class="tertiary" x="15.22" y="23.58" width=".15" height="1.18" transform="translate(35.19 44.71) rotate(168.25)"/>
+          <rect class="tertiary" x="14.04" y="23.76" width=".15" height="1.18" transform="translate(30.61 47.16) rotate(174.25)"/>
+
+          <rect class="secondary" x="12.84" y="23.41" width=".22" height="1.62" transform="translate(25.83 48.48) rotate(-179.84)"/>
+
+          <rect class="tertiary" x="11.69" y="23.76" width=".15" height="1.18" transform="translate(20.86 49.82) rotate(-173.87)"/>
+          <rect class="tertiary" x="10.51" y="23.57" width=".15" height="1.18" transform="translate(15.86 50.01) rotate(-167.87)"/>
+          <rect class="tertiary" x="9.36" y="23.27" width=".15" height="1.18" transform="translate(10.98 49.46) rotate(-161.87)"/>
+          <rect class="tertiary" x="8.25" y="22.84" width=".15" height="1.18" transform="translate(6.35 48.21) rotate(-155.87)"/>
+
+          <rect class="secondary" x="7.24" y="21.91" width=".22" height="1.62" transform="translate(2.3 46.07) rotate(-149.84)"/>
+
+          <rect class="tertiary" x="6.2" y="21.66" width=".15" height="1.18" transform="translate(-1.73 43.94) rotate(-143.96)"/>
+          <rect class="tertiary" x="5.28" y="20.92" width=".15" height="1.18" transform="translate(-5.07 41.06) rotate(-137.96)"/>
+          <rect class="tertiary" x="4.43" y="20.08" width=".15" height="1.18" transform="translate(-7.84 37.84) rotate(-131.96)"/>
+          <rect class="tertiary" x="3.68" y="19.15" width=".15" height="1.18" transform="translate(-10.01 34.38) rotate(-125.96)"/>
+
+          <rect class="secondary" x="3.15" y="17.81" width=".22" height="1.62" transform="translate(-11.27 30.72) rotate(-119.84)"/>
+
+          <rect class="tertiary" x="2.49" y="17.09" width=".15" height="1.18" transform="translate(-12.55 27.19) rotate(-113.94)"/>
+          <rect class="tertiary" x="2.06" y="15.98" width=".15" height="1.18" transform="translate(-12.97 23.7) rotate(-107.94)"/>
+          <rect class="tertiary" x="1.75" y="14.83" width=".15" height="1.18" transform="translate(-12.88 20.39) rotate(-101.94)"/>
+          <rect class="tertiary" x="1.56" y="13.65" width=".15" height="1.18" transform="translate(-12.36 17.34) rotate(-95.94)"/>
+
+          <rect class="secondary" x="1.65" y="12.22" width=".22" height="1.62" transform="translate(-11.28 14.76) rotate(-89.84)"/>
+
+          <rect class="tertiary" x="1.56" y="11.25" width=".15" height="1.18" transform="translate(-10.31 12.19) rotate(-83.82)"/>
+          <rect class="tertiary" x="1.75" y="10.07" width=".15" height="1.18" transform="translate(-8.98 10.19) rotate(-77.82)"/>
+          <rect class="tertiary" x="2.06" y="8.92" width=".15" height="1.18" transform="translate(-7.57 8.57) rotate(-71.82)"/>
+          <rect class="tertiary" x="2.48" y="7.81" width=".15" height="1.18" transform="translate(-6.15 7.29) rotate(-65.82)"/>
+
+          <rect class="secondary" x="3.15" y="6.63" width=".22" height="1.62" transform="translate(-4.81 6.52) rotate(-59.84)"/>
+
+          <rect class="tertiary" x="3.68" y="5.74" width=".15" height="1.18" transform="translate(-3.56 5.61) rotate(-53.72)"/>
+          <rect class="tertiary" x="4.44" y="4.81" width=".15" height="1.18" transform="translate(-2.52 5.11) rotate(-47.72)"/>
+          <rect class="tertiary" x="5.28" y="3.97" width=".15" height="1.18" transform="translate(-1.68 4.72) rotate(-41.72)"/>
+          <rect class="tertiary" x="6.21" y="3.23" width=".15" height="1.18" transform="translate(-1.04 4.39) rotate(-35.72)"/>
+
+          <rect class="secondary" x="7.24" y="2.53" width=".22" height="1.62" transform="translate(-.69 4.1) rotate(-29.84)"/>
+
+          <rect class="tertiary" x="8.26" y="2.04" width=".15" height="1.18" transform="translate(-.35 3.58) rotate(-23.75)"/>
+          <rect class="tertiary" x="9.38" y="1.62" width=".15" height="1.18" transform="translate(-.22 2.99) rotate(-17.75)"/>
+          <rect class="tertiary" x="10.53" y="1.31" width=".15" height="1.18" transform="translate(-.16 2.2) rotate(-11.75)"/>
+          <rect class="tertiary" x="11.71" y="1.13" width=".15" height="1.18" transform="translate(-.11 1.19) rotate(-5.75)"/>
+
+
+      </svg>

@@ -186,3 +186,180 @@ template_map_motion_sensor:
       [[[ return !entity || entity.state; ]]]
   template:
     - icon_figure_walk
+
+
+template_map_sub_menu_button:
+  show_state: false
+  show_icon: false
+  show_name: false
+  show_label: false
+  state:
+    - value: 'on'
+      styles:
+        card:
+          - background: white
+    - value: 'off'
+      styles:
+        card:
+          - background: var(--homeos-card-background-revert)
+  styles:
+    card:
+      - box-shadow: none
+      - border-radius: 50%
+      - backdrop-filter: none
+      - background: var(--homeos-card-background-revert)
+      - border-style: none
+      - height: 100%
+    custom_fields:
+      icon:
+        - width: 3vw
+        - display: 
+        - justify-self: center
+    grid:
+      - grid-template-areas: |
+          "icon"
+      - grid-template-columns: auto
+      - grid-template-row: auto
+  variables:
+    state: > #send the state to the svg icon
+      [[[ return !entity || entity.state; ]]]
+
+template_map_sub_menu:
+  show_state: false
+  show_icon: false
+  show_name: false
+  show_label: false
+  double_tap_action:
+    action: none
+  styles:
+    custom_fields:
+      icon:
+        - width: 2.7vw
+    card:
+      - width: 5vw
+      - height: 5vw
+      - borderRadius: 50%
+      - border-width: 0px
+      - background-color: >
+          [[[ return (entity.state === 'on' ) ? 'var(--homeos-map-icon-background-on)' : 'var(--homeos-map-icon-background-off)'; ]]]
+    grid:
+      - grid-template-areas: |
+          "icon"
+      - grid-template-columns: auto
+      - grid-template-rows: auto
+  variables:
+    state: > #send the state to the svg icon
+      [[[ return !entity || entity.state; ]]]
+
+  tap_action: 
+    action: fire-dom-event
+    browser_mod:
+      service: browser_mod.popup
+      data:
+        style: |
+          --popup-min-width: var(--homeos-card-grid-square);
+          --popup-max-width: var(--homeos-card-grid-square);
+          --popup-border-radius: var(--homeos-card-border-radius);
+          --mdc-theme-surface: var(--homeos-card-background);
+          --dialog-backdrop-filter:
+        card_mod:
+          style: 
+            ha-dialog$: |
+              # div {
+              #   --mdc-dialog-max-width: var(--homeos-card-grid-square) !important;
+              # }
+              div > div.mdc-dialog__container > div {
+              #   background-color: var(--homeos-card-background) !important;
+                backdrop-filter: var(--homeos-card-backdrop-filter);
+              #   max-width: var(--homeos-card-grid-square) !important;
+              #   max-height: var(--homeos-card-grid-square) !important;
+              }
+              # div.mdc-dialog__surface {
+              #   border-radius: 0px !important;
+              #   border-width: 0px !important;
+              #   min-width: var(--homeos-card-grid-square) !important;
+              #   #clip-path: polygon(calc(100% - 30p
+              # } 
+              # .mdc-dialog .mdc-dialog__container {
+              #   position: absolute !important;
+              #   left: 12% !important;
+              # }
+              # .mdc-dialog .mdc-dialog__scrim {
+              #   background-color: rgba(0,0,0,0) !important;
+              # }
+              # :host {
+              #   color: var(--homeos-card-text-color-primary) !important;
+              #   --popup-min-width: var(--homeos-card-grid-square) !important; #Control width of popup
+              # }
+              # ha-header-bar {
+              #   --mdc-theme-primary: black !important;
+              # }
+              # .mdc-dialog__content {
+              #   overflow: hidden !important;
+              # }
+        content:      
+          type: custom:mod-card
+          style: 
+            .: >
+              :host {
+                margin: 0px !important;
+              }   
+            swipe-card:
+              $: |
+                .swiper-container {
+                  box-shadow: none;
+                  border-radius: var(--homeos-card-border-radius);
+                  background-color: rgba(0,0,0,0);
+                  border: none;
+                }
+                .swiper-pagination {
+                  bottom: 0vw !important;
+                }   
+                .swiper-pagination-bullet-active {
+                  --swiper-pagination-color: var(--homeos-icon-color-primary) !important;
+                  opacity: 0.6 !important;  
+                  width: 0.5vw;
+                  height: 0.5vw;  
+                }
+                .swiper-pagination-bullets>span {
+                  width: 0.5vw;
+                  height: 0.5vw;
+                  background: var(--homeos-icon-color-primary);
+                }         
+          card:
+            type: custom:swipe-card
+            start_card: 1
+            reset_after: 10
+            parameters:
+              effect: cards
+              spaceBetween: 10
+              pagination:
+                type: "bullets"
+                clickable: true
+            cards:
+              - type: grid
+                columns: 2
+                cards:
+                  - type: custom:button-card
+                    entity: scene.forest
+                    template:
+                      - icon_lamp_ceiling_fill
+                      - template_map_sub_menu_button
+
+                  - type: custom:button-card
+                    entity: "[[[ return variables.scene_entity_id_1; ]]]"
+                    template:
+                      - icon_lamp_ceiling_fill
+                      - template_map_sub_menu_button
+
+                  - type: custom:button-card
+                    entity: "[[[ return variables.scene_entity_id_1; ]]]"
+                    template:
+                      - icon_lamp_ceiling_fill
+                      - template_map_sub_menu_button
+
+                  - type: custom:button-card
+                    entity: "[[[ return variables.scene_entity_id_1; ]]]"
+                    template:
+                      - icon_lamp_ceiling_fill
+                      - template_map_sub_menu_button

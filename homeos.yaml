@@ -28,6 +28,7 @@
 # ==============================================================================
 homeos_configuration:
 
+
 # Apps Bar
 # +----------+--------------------+-------------------------------------------+
 # | Name     | Anchor Name        | Entity or icon svg to change              |
@@ -92,6 +93,20 @@ kiosk_mode:
 # all relevant template will be find
 button_card_templates: !include_dir_merge_named homeos_module/
 
+
+decluttering_templates:
+  light:
+    card:
+      type: custom:button-card
+      entity: '[[entity]]'
+      tap_action: 
+        action: fire-dom-event
+        browser_mod:
+          service: browser_mod.popup
+          data:
+            content:      
+              type: custom:button-card
+              entity: '[[entity2]]'  
 views:
 # +----------------------------------------------------------------------------+
 # | Definition of the first grid-layout                                        |
@@ -238,117 +253,45 @@ views:
 # +---+------------------------------------------------------------------------+
 # | 2 | Definition of the top Bar                                              |
 # +---+------------------------------------------------------------------------+    
-      - type: custom:layout-card
-        layout_type: custom:grid-layout
-        view_layout:
-          grid_area: topbar
-        layout:
-          card_margin: 0
-          grid-template-columns: 1fr 12vw
-          grid-template-rows: 1fr 
-          grid-gap: 0
-          margin: 0
-          padding: 0
-          grid-template-areas: |
-            "notification time"
-        cards:
-# +-----+----------------------------------------------------------------------+
-# | 2.1 | Definition notification area                                         |
-# +-----+----------------------------------------------------------------------+ 
-          - type: custom:mod-card
-            style: |
-              :host {
-                margin: 0.4vw 0 0 0.5vw !important;
-              }
-            card:
-              type: horizontal-stack
-              cards:
-                - type: custom:button-card
-                  view_layout:
-                    grid_area: notification
-                  entity: sensor.temperature_min_max
-                  template:
-                    - template_topbar
-                    - icon_topbar_thermometer
-                    
-                - type: custom:button-card
-                  view_layout:
-                    grid_area: notification
-                  entity: sensor.humidity_min_max
-                  template:
-                    - template_topbar
-                    - icon_topbar_humidity
+      - type: custom:mod-card
+        style: |
+          :host {
+            margin: 0.4vw 0 0 0.5vw !important;
+          }
+        card:
+          type: horizontal-stack
+          view_layout:
+            grid_area: topbar
+          cards:
+            - type: custom:button-card
+              entity: sensor.temperature_min_max
+              template:
+                - template_topbar
+                - icon_topbar_thermometer
+                
+            - type: custom:button-card
+              entity: sensor.humidity_min_max
+              template:
+                - template_topbar
+                - icon_topbar_humidity
 
-                - type: custom:button-card
-                  view_layout:
-                    grid_area: notification
-                  entity: sensor.lights_on_count
-                  template:
-                    - template_topbar
-                    - icon_topbar_lightbulb  
+            - type: custom:button-card
+              entity: sensor.lights_on_count
+              template:
+                - template_topbar
+                - icon_topbar_lightbulb  
 
-                - type: custom:button-card
-                  view_layout:
-                    grid_area: notification
-                  entity: sensor.security_status
-                  template:
-                    - template_topbar
-                    - icon_topbar_security  
+            - type: custom:button-card
+              entity: sensor.security_status
+              template:
+                - template_topbar
+                - icon_topbar_security  
 
-                - type: custom:button-card
-                  view_layout:
-                    grid_area: notification
-                  entity: sensor.battery_min_max
-                  template:
-                    - template_topbar
-                    - icon_topbar_battery  
-
-
-# +-----+----------------------------------------------------------------------+
-# | 2.2 | Definition time area                                                 |
-# +-----+----------------------------------------------------------------------+ 
-          - type: custom:button-card
-            view_layout:
-              grid_area: time
-            entity: sensor.time
-            show_state: true
-            show_icon: false
-            show_name: false
-            style: |
-              :host {
-                margin: 0px !important;
-              }
-            styles:
-              card:
-                - background: rgba(0,0,0,0)
-                - padding: 0
-                - border-color: rgba(0,0,0,0)
-                - height: var(--homeos-topbar-height)
-              state:
-                - font-size: 3vw
-                - color: white
-                - mix-blend-mode: overlay
-              custom_fields:
-                layer_1:
-                  - position: absolute
-                  - display: flex
-                  - font-size: 3vw
-                  - mix-blend-mode: overlay
-                  - transform: translate(0,0)
-                  - color: white
-                  - justify-self: center
-                layer_2:
-                  - position: absolute
-                  - display: flex
-                  - font-size: 3vw
-                  - transform: translate(0,0)
-                  - color: rgba(255,255,255,0.9)
-                  - justify-self: center 
-            custom_fields:
-              layer_1: >
-                [[[ return entity.state ]]]
-              layer_2: >
-                [[[ return entity.state ]]]        
+            - type: custom:button-card
+              entity: sensor.battery_min_max
+              template:
+                - template_topbar
+                - icon_topbar_battery  
 
 #................................................
 #.....GGGGGGG....RRRRRRRRRR..IIIII.DDDDDDDDD.....
@@ -390,8 +333,8 @@ views:
               "weather  weather  map map map map person_car person_bus"
               "weather  weather  map map map map garbage washer"
               "weather  weather  map map map map . plant"
-              "calendar calendar map map map map 4 ."
-              "calendar calendar box box scene . 5 ."
+              "calendar calendar map map map map 4 test"
+              "calendar calendar clock box box scene . 5"
 
           cards:
 
@@ -411,6 +354,7 @@ views:
                   margin: 0px !important;
                 }
               card: !include homeos_module/weather/weather_card.yaml  
+    
     
     
 # +----------------------------------------------------------------------------+
@@ -676,5 +620,27 @@ views:
                     template:
                       - template_plant
 
-            
-    
+# +----------------------------------------------------------------------------+
+# | Clock Area Definition                                                      |
+# +----------------------------------------------------------------------------+
+            - type: custom:button-card
+              entity: sensor.time
+              view_layout:
+                grid-area: clock
+              template:
+                - template_clock
+
+# +----------------------------------------------------------------------------+
+# | Test Area Definition                                                       |
+# +----------------------------------------------------------------------------+
+
+
+            # - type: custom:decluttering-card
+            #   view_layout:
+            #     grid-area: test
+            #   template: light
+            #   variables:
+            #     - entity: light.clarabedroom
+            #     - entity2: light.clarabedroom
+
+

@@ -1,0 +1,37 @@
+template_clock:
+  show_entity_picture: false
+  show_name: false
+  show_state: false
+  show_label: false
+  show_icon: false
+  aspect_ratio: 1/1
+  styles:
+    grid: 
+      - grid-template-areas: | 
+          "icon" 
+      - grid-template-columns: 1fr
+      - grid-template-rows: 1fr
+    card:
+      - padding: 0.5vw
+      - margin: 0 0 0 0 
+      - border-radius: var(--homeos-card-border-radius)
+      - box-shadow: var(--homeos-card-box-shadow)
+      - background-color: var(--homeos-card-background)
+      - backdrop-filter: var(--homeos-card-backdrop-filter)
+      - border-style: var(--homeos-card-border-style)
+      - border-color: var(--homeos-card-border-color)
+      - height: 100%
+    custom_fields:
+      time:
+        - position: absolute
+        - top: 50%
+        - left: 50%
+        - transform: translate(-50%,-50%)
+        - color: var(--homeos-card-text-color-revert)
+        - font-size: 2.5vw
+
+  custom_fields:
+    time: "[[[ return !entity || entity.state; ]]]"
+                  
+  template:
+    - icon_clock
